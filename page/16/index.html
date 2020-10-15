@@ -14,10 +14,12 @@
 
 
 <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-center-atom.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"pokenoti.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"pokenoti.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="只是个公告备份">
@@ -101,6 +103,7 @@
 
   <div class="site-nav-right">
     <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
     </div>
   </div>
 </div>
@@ -125,11 +128,38 @@
     <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
 
   </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
   </ul>
 </nav>
 
 
 
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
 
 </div>
     </header>
@@ -139,6 +169,7 @@
     <i class="fa fa-arrow-up"></i>
     <span>0%</span>
   </div>
+  <div class="reading-progress-bar"></div>
 
 
     <main class="main">
@@ -148,6 +179,178 @@
 
           <div class="content index posts-expand">
             
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://pokenoti.github.io/2018/07/10/%E3%80%8A%E5%8F%A3%E8%A2%8B%E4%B9%8B%E6%97%85H5%E3%80%8B2018%E5%B9%B47%E6%9C%8810%E6%97%A5%E6%9A%91%E6%9C%9F%E6%AE%B5%E4%BD%8D%E8%B5%9B%E5%BC%80%E5%90%AF/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/pikachu_fa.png">
+      <meta itemprop="name" content="PM">
+      <meta itemprop="description" content="只是个公告备份">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="《口袋之旅H5》活动公告">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2018/07/10/%E3%80%8A%E5%8F%A3%E8%A2%8B%E4%B9%8B%E6%97%85H5%E3%80%8B2018%E5%B9%B47%E6%9C%8810%E6%97%A5%E6%9A%91%E6%9C%9F%E6%AE%B5%E4%BD%8D%E8%B5%9B%E5%BC%80%E5%90%AF/" class="post-title-link" itemprop="url">《口袋之旅H5》2018年7月10日暑期段位赛开启</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-07-10 16:39:03" itemprop="dateCreated datePublished" datetime="2018-07-10T16:39:03+08:00">2018-07-10</time>
+            </span>
+
+          
+            <span id="/2018/07/10/%E3%80%8A%E5%8F%A3%E8%A2%8B%E4%B9%8B%E6%97%85H5%E3%80%8B2018%E5%B9%B47%E6%9C%8810%E6%97%A5%E6%9A%91%E6%9C%9F%E6%AE%B5%E4%BD%8D%E8%B5%9B%E5%BC%80%E5%90%AF/" class="post-meta-item leancloud_visitors" data-flag-title="《口袋之旅H5》2018年7月10日暑期段位赛开启" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2018/07/10/%E3%80%8A%E5%8F%A3%E8%A2%8B%E4%B9%8B%E6%97%85H5%E3%80%8B2018%E5%B9%B47%E6%9C%8810%E6%97%A5%E6%9A%91%E6%9C%9F%E6%AE%B5%E4%BD%8D%E8%B5%9B%E5%BC%80%E5%90%AF/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2018/07/10/%E3%80%8A%E5%8F%A3%E8%A2%8B%E4%B9%8B%E6%97%85H5%E3%80%8B2018%E5%B9%B47%E6%9C%8810%E6%97%A5%E6%9A%91%E6%9C%9F%E6%AE%B5%E4%BD%8D%E8%B5%9B%E5%BC%80%E5%90%AF/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="《口袋之旅H5》7月10日段位赛开启"><a href="#《口袋之旅H5》7月10日段位赛开启" class="headerlink" title="《口袋之旅H5》7月10日段位赛开启"></a>《口袋之旅H5》7月10日段位赛开启</h1><h2 id="精彩活动：暑期S1赛季-段位赛"><a href="#精彩活动：暑期S1赛季-段位赛" class="headerlink" title="精彩活动：暑期S1赛季-段位赛"></a>精彩活动：暑期S1赛季-段位赛</h2><p>活动内容：全新的段位系统玩法，在不改变现有的PVP匹配规则下，增加新的段位系统规则。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2018/07/10/%E3%80%8A%E5%8F%A3%E8%A2%8B%E4%B9%8B%E6%97%85H5%E3%80%8B2018%E5%B9%B47%E6%9C%8810%E6%97%A5%E6%9A%91%E6%9C%9F%E6%AE%B5%E4%BD%8D%E8%B5%9B%E5%BC%80%E5%90%AF/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://pokenoti.github.io/2018/07/05/%E3%80%8A%E5%8F%A3%E8%A2%8B%E4%B9%8B%E6%97%85H5%E3%80%8B2018%E5%B9%B47%E6%9C%886%E6%97%A5%E6%B4%BB%E5%8A%A8%E5%85%AC%E5%91%8A/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/pikachu_fa.png">
+      <meta itemprop="name" content="PM">
+      <meta itemprop="description" content="只是个公告备份">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="《口袋之旅H5》活动公告">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2018/07/05/%E3%80%8A%E5%8F%A3%E8%A2%8B%E4%B9%8B%E6%97%85H5%E3%80%8B2018%E5%B9%B47%E6%9C%886%E6%97%A5%E6%B4%BB%E5%8A%A8%E5%85%AC%E5%91%8A/" class="post-title-link" itemprop="url">《口袋之旅H5》2018年7月6日活动公告</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-07-05 14:51:54" itemprop="dateCreated datePublished" datetime="2018-07-05T14:51:54+08:00">2018-07-05</time>
+            </span>
+
+          
+            <span id="/2018/07/05/%E3%80%8A%E5%8F%A3%E8%A2%8B%E4%B9%8B%E6%97%85H5%E3%80%8B2018%E5%B9%B47%E6%9C%886%E6%97%A5%E6%B4%BB%E5%8A%A8%E5%85%AC%E5%91%8A/" class="post-meta-item leancloud_visitors" data-flag-title="《口袋之旅H5》2018年7月6日活动公告" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2018/07/05/%E3%80%8A%E5%8F%A3%E8%A2%8B%E4%B9%8B%E6%97%85H5%E3%80%8B2018%E5%B9%B47%E6%9C%886%E6%97%A5%E6%B4%BB%E5%8A%A8%E5%85%AC%E5%91%8A/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2018/07/05/%E3%80%8A%E5%8F%A3%E8%A2%8B%E4%B9%8B%E6%97%85H5%E3%80%8B2018%E5%B9%B47%E6%9C%886%E6%97%A5%E6%B4%BB%E5%8A%A8%E5%85%AC%E5%91%8A/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="《口袋之旅H5》7月6日活动公告"><a href="#《口袋之旅H5》7月6日活动公告" class="headerlink" title="《口袋之旅H5》7月6日活动公告"></a>《口袋之旅H5》7月6日活动公告</h1><p>《口袋之旅H5》将于7月6日10:00-10:30进行停服更新，更新结束后将发放更新礼包：钻石×66、体力糖果×2、中级祈愿胶囊（中）×3、特大经验糖果×20。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2018/07/05/%E3%80%8A%E5%8F%A3%E8%A2%8B%E4%B9%8B%E6%97%85H5%E3%80%8B2018%E5%B9%B47%E6%9C%886%E6%97%A5%E6%B4%BB%E5%8A%A8%E5%85%AC%E5%91%8A/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -178,15 +381,29 @@
 
               <time title="创建时间：2018-06-28 16:46:00" itemprop="dateCreated datePublished" datetime="2018-06-28T16:46:00+08:00">2018-06-28</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-10-14 11:01:14" itemprop="dateModified" datetime="2020-10-14T11:01:14+08:00">2020-10-14</time>
-              </span>
 
           
+            <span id="/2018/06/28/%E3%80%8A%E5%8F%A3%E8%A2%8B%E4%B9%8B%E6%97%85H5%E3%80%8B2018%E5%B9%B46%E6%9C%8829%E6%97%A5%E7%89%88%E6%9C%AC%E6%9B%B4%E6%96%B0%E5%85%AC%E5%91%8A/" class="post-meta-item leancloud_visitors" data-flag-title="《口袋之旅H5》2018年6月29日版本更新公告" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2018/06/28/%E3%80%8A%E5%8F%A3%E8%A2%8B%E4%B9%8B%E6%97%85H5%E3%80%8B2018%E5%B9%B46%E6%9C%8829%E6%97%A5%E7%89%88%E6%9C%AC%E6%9B%B4%E6%96%B0%E5%85%AC%E5%91%8A/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2018/06/28/%E3%80%8A%E5%8F%A3%E8%A2%8B%E4%B9%8B%E6%97%85H5%E3%80%8B2018%E5%B9%B46%E6%9C%8829%E6%97%A5%E7%89%88%E6%9C%AC%E6%9B%B4%E6%96%B0%E5%85%AC%E5%91%8A/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
 
         </div>
       </header>
@@ -250,15 +467,29 @@
 
               <time title="创建时间：2018-06-21 11:20:22" itemprop="dateCreated datePublished" datetime="2018-06-21T11:20:22+08:00">2018-06-21</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-10-14 11:01:14" itemprop="dateModified" datetime="2020-10-14T11:01:14+08:00">2020-10-14</time>
-              </span>
 
           
+            <span id="/2018/06/21/%E3%80%8A%E5%8F%A3%E8%A2%8B%E4%B9%8B%E6%97%85H5%E3%80%8B2018%E5%B9%B46%E6%9C%8822%E6%97%A5%E6%B4%BB%E5%8A%A8%E5%85%AC%E5%91%8A/" class="post-meta-item leancloud_visitors" data-flag-title="《口袋之旅H5》2018年6月22日活动公告" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2018/06/21/%E3%80%8A%E5%8F%A3%E8%A2%8B%E4%B9%8B%E6%97%85H5%E3%80%8B2018%E5%B9%B46%E6%9C%8822%E6%97%A5%E6%B4%BB%E5%8A%A8%E5%85%AC%E5%91%8A/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2018/06/21/%E3%80%8A%E5%8F%A3%E8%A2%8B%E4%B9%8B%E6%97%85H5%E3%80%8B2018%E5%B9%B46%E6%9C%8822%E6%97%A5%E6%B4%BB%E5%8A%A8%E5%85%AC%E5%91%8A/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
 
         </div>
       </header>
@@ -323,15 +554,29 @@
 
               <time title="创建时间：2018-06-14 16:01:33" itemprop="dateCreated datePublished" datetime="2018-06-14T16:01:33+08:00">2018-06-14</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-10-14 11:01:14" itemprop="dateModified" datetime="2020-10-14T11:01:14+08:00">2020-10-14</time>
-              </span>
 
           
+            <span id="/2018/06/14/%E3%80%8A%E5%8F%A3%E8%A2%8B%E4%B9%8B%E6%97%85H5%E3%80%8B2018%E5%B9%B46%E6%9C%8815%E6%97%A5%E7%AB%AF%E5%8D%88%E8%8A%82%E6%B4%BB%E5%8A%A8%E5%85%AC%E5%91%8A/" class="post-meta-item leancloud_visitors" data-flag-title="《口袋之旅H5》2018年6月15日端午节活动公告" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2018/06/14/%E3%80%8A%E5%8F%A3%E8%A2%8B%E4%B9%8B%E6%97%85H5%E3%80%8B2018%E5%B9%B46%E6%9C%8815%E6%97%A5%E7%AB%AF%E5%8D%88%E8%8A%82%E6%B4%BB%E5%8A%A8%E5%85%AC%E5%91%8A/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2018/06/14/%E3%80%8A%E5%8F%A3%E8%A2%8B%E4%B9%8B%E6%97%85H5%E3%80%8B2018%E5%B9%B46%E6%9C%8815%E6%97%A5%E7%AB%AF%E5%8D%88%E8%8A%82%E6%B4%BB%E5%8A%A8%E5%85%AC%E5%91%8A/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
 
         </div>
       </header>
@@ -395,15 +640,29 @@
 
               <time title="创建时间：2018-06-07 13:42:20" itemprop="dateCreated datePublished" datetime="2018-06-07T13:42:20+08:00">2018-06-07</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-10-14 11:01:14" itemprop="dateModified" datetime="2020-10-14T11:01:14+08:00">2020-10-14</time>
-              </span>
 
           
+            <span id="/2018/06/07/%E3%80%8A%E5%8F%A3%E8%A2%8B%E4%B9%8B%E6%97%85H5%E3%80%8B2018%E5%B9%B46%E6%9C%888%E6%97%A5%E6%B4%BB%E5%8A%A8%E5%85%AC%E5%91%8A/" class="post-meta-item leancloud_visitors" data-flag-title="《口袋之旅H5》2018年6月8日活动公告" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2018/06/07/%E3%80%8A%E5%8F%A3%E8%A2%8B%E4%B9%8B%E6%97%85H5%E3%80%8B2018%E5%B9%B46%E6%9C%888%E6%97%A5%E6%B4%BB%E5%8A%A8%E5%85%AC%E5%91%8A/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2018/06/07/%E3%80%8A%E5%8F%A3%E8%A2%8B%E4%B9%8B%E6%97%85H5%E3%80%8B2018%E5%B9%B46%E6%9C%888%E6%97%A5%E6%B4%BB%E5%8A%A8%E5%85%AC%E5%91%8A/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
 
         </div>
       </header>
@@ -467,15 +726,29 @@
 
               <time title="创建时间：2018-05-31 11:40:05" itemprop="dateCreated datePublished" datetime="2018-05-31T11:40:05+08:00">2018-05-31</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-10-14 11:01:14" itemprop="dateModified" datetime="2020-10-14T11:01:14+08:00">2020-10-14</time>
-              </span>
 
           
+            <span id="/2018/05/31/%E3%80%8A%E5%8F%A3%E8%A2%8B%E4%B9%8B%E6%97%85H5%E3%80%8B2018%E5%B9%B46%E6%9C%881%E6%97%A5%E6%B4%BB%E5%8A%A8%E5%85%AC%E5%91%8A/" class="post-meta-item leancloud_visitors" data-flag-title="《口袋之旅H5》2018年6月1日活动公告" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2018/05/31/%E3%80%8A%E5%8F%A3%E8%A2%8B%E4%B9%8B%E6%97%85H5%E3%80%8B2018%E5%B9%B46%E6%9C%881%E6%97%A5%E6%B4%BB%E5%8A%A8%E5%85%AC%E5%91%8A/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2018/05/31/%E3%80%8A%E5%8F%A3%E8%A2%8B%E4%B9%8B%E6%97%85H5%E3%80%8B2018%E5%B9%B46%E6%9C%881%E6%97%A5%E6%B4%BB%E5%8A%A8%E5%85%AC%E5%91%8A/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
 
         </div>
       </header>
@@ -539,15 +812,29 @@
 
               <time title="创建时间：2018-05-24 15:55:24" itemprop="dateCreated datePublished" datetime="2018-05-24T15:55:24+08:00">2018-05-24</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-10-14 11:01:14" itemprop="dateModified" datetime="2020-10-14T11:01:14+08:00">2020-10-14</time>
-              </span>
 
           
+            <span id="/2018/05/24/%E3%80%8A%E5%8F%A3%E8%A2%8B%E4%B9%8B%E6%97%85H5%E3%80%8B2018%E5%B9%B45%E6%9C%8825%E6%97%A5%E6%B4%BB%E5%8A%A8%E5%85%AC%E5%91%8A/" class="post-meta-item leancloud_visitors" data-flag-title="《口袋之旅H5》2018年5月25日活动公告" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2018/05/24/%E3%80%8A%E5%8F%A3%E8%A2%8B%E4%B9%8B%E6%97%85H5%E3%80%8B2018%E5%B9%B45%E6%9C%8825%E6%97%A5%E6%B4%BB%E5%8A%A8%E5%85%AC%E5%91%8A/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2018/05/24/%E3%80%8A%E5%8F%A3%E8%A2%8B%E4%B9%8B%E6%97%85H5%E3%80%8B2018%E5%B9%B45%E6%9C%8825%E6%97%A5%E6%B4%BB%E5%8A%A8%E5%85%AC%E5%91%8A/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
 
         </div>
       </header>
@@ -611,15 +898,29 @@
 
               <time title="创建时间：2018-05-17 14:33:48" itemprop="dateCreated datePublished" datetime="2018-05-17T14:33:48+08:00">2018-05-17</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-10-14 11:01:14" itemprop="dateModified" datetime="2020-10-14T11:01:14+08:00">2020-10-14</time>
-              </span>
 
           
+            <span id="/2018/05/17/%E3%80%8A%E5%8F%A3%E8%A2%8B%E4%B9%8B%E6%97%85H5%E3%80%8B2018%E5%B9%B45%E6%9C%8818%E6%97%A5%E7%89%88%E6%9C%AC%E6%9B%B4%E6%96%B0%E6%B4%BB%E5%8A%A8%E5%85%AC%E5%91%8A/" class="post-meta-item leancloud_visitors" data-flag-title="《口袋之旅H5》2018年5月18日版本更新活动公告" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2018/05/17/%E3%80%8A%E5%8F%A3%E8%A2%8B%E4%B9%8B%E6%97%85H5%E3%80%8B2018%E5%B9%B45%E6%9C%8818%E6%97%A5%E7%89%88%E6%9C%AC%E6%9B%B4%E6%96%B0%E6%B4%BB%E5%8A%A8%E5%85%AC%E5%91%8A/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2018/05/17/%E3%80%8A%E5%8F%A3%E8%A2%8B%E4%B9%8B%E6%97%85H5%E3%80%8B2018%E5%B9%B45%E6%9C%8818%E6%97%A5%E7%89%88%E6%9C%AC%E6%9B%B4%E6%96%B0%E6%B4%BB%E5%8A%A8%E5%85%AC%E5%91%8A/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
 
         </div>
       </header>
@@ -683,15 +984,29 @@
 
               <time title="创建时间：2018-05-10 16:17:45" itemprop="dateCreated datePublished" datetime="2018-05-10T16:17:45+08:00">2018-05-10</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-10-14 11:01:14" itemprop="dateModified" datetime="2020-10-14T11:01:14+08:00">2020-10-14</time>
-              </span>
 
           
+            <span id="/2018/05/10/%E3%80%8A%E5%8F%A3%E8%A2%8B%E4%B9%8B%E6%97%85H5%E3%80%8B2018%E5%B9%B45%E6%9C%8811%E6%97%A5%E6%AF%8D%E4%BA%B2%E8%8A%82%E6%B4%BB%E5%8A%A8%E5%85%AC%E5%91%8A/" class="post-meta-item leancloud_visitors" data-flag-title="《口袋之旅H5》2018年5月11日母亲节活动公告" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2018/05/10/%E3%80%8A%E5%8F%A3%E8%A2%8B%E4%B9%8B%E6%97%85H5%E3%80%8B2018%E5%B9%B45%E6%9C%8811%E6%97%A5%E6%AF%8D%E4%BA%B2%E8%8A%82%E6%B4%BB%E5%8A%A8%E5%85%AC%E5%91%8A/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2018/05/10/%E3%80%8A%E5%8F%A3%E8%A2%8B%E4%B9%8B%E6%97%85H5%E3%80%8B2018%E5%B9%B45%E6%9C%8811%E6%97%A5%E6%AF%8D%E4%BA%B2%E8%8A%82%E6%B4%BB%E5%8A%A8%E5%85%AC%E5%91%8A/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
 
         </div>
       </header>
@@ -725,155 +1040,10 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://pokenoti.github.io/2018/05/04/%E3%80%8A%E5%8F%A3%E8%A2%8B%E4%B9%8B%E6%97%85H5%E3%80%8B2018%E5%B9%B45%E6%9C%884%E6%97%A5%E6%B4%BB%E5%8A%A8%E5%85%AC%E5%91%8A/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/pikachu_fa.png">
-      <meta itemprop="name" content="PM">
-      <meta itemprop="description" content="只是个公告备份">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="《口袋之旅H5》活动公告">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2018/05/04/%E3%80%8A%E5%8F%A3%E8%A2%8B%E4%B9%8B%E6%97%85H5%E3%80%8B2018%E5%B9%B45%E6%9C%884%E6%97%A5%E6%B4%BB%E5%8A%A8%E5%85%AC%E5%91%8A/" class="post-title-link" itemprop="url">《口袋之旅H5》2018年5月4日活动公告</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2018-05-04 09:02:25" itemprop="dateCreated datePublished" datetime="2018-05-04T09:02:25+08:00">2018-05-04</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-10-14 11:01:14" itemprop="dateModified" datetime="2020-10-14T11:01:14+08:00">2020-10-14</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="《口袋之旅H5》5月4日活动公告"><a href="#《口袋之旅H5》5月4日活动公告" class="headerlink" title="《口袋之旅H5》5月4日活动公告"></a>《口袋之旅H5》5月4日活动公告</h1><p>《口袋之旅H5》将于5月4日10:00-10:30进行停服更新，更新结束后将发放更新礼包：钻石×60、体力糖果×2、黄金盒子×2、特大经验糖果×15。</p>
-<p>新增内容：Mega哥德小姐、特别版闪光超能妙喵</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2018/05/04/%E3%80%8A%E5%8F%A3%E8%A2%8B%E4%B9%8B%E6%97%85H5%E3%80%8B2018%E5%B9%B45%E6%9C%884%E6%97%A5%E6%B4%BB%E5%8A%A8%E5%85%AC%E5%91%8A/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://pokenoti.github.io/2018/04/27/%E3%80%8A%E5%8F%A3%E8%A2%8B%E4%B9%8B%E6%97%85H5%E3%80%8B2018%E5%B9%B44%E6%9C%8828%E6%97%A5%E4%BA%94%E4%B8%80%E7%8B%82%E6%AC%A2%E6%B4%BB%E5%8A%A8%E5%85%AC%E5%91%8A/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/pikachu_fa.png">
-      <meta itemprop="name" content="PM">
-      <meta itemprop="description" content="只是个公告备份">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="《口袋之旅H5》活动公告">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2018/04/27/%E3%80%8A%E5%8F%A3%E8%A2%8B%E4%B9%8B%E6%97%85H5%E3%80%8B2018%E5%B9%B44%E6%9C%8828%E6%97%A5%E4%BA%94%E4%B8%80%E7%8B%82%E6%AC%A2%E6%B4%BB%E5%8A%A8%E5%85%AC%E5%91%8A/" class="post-title-link" itemprop="url">《口袋之旅H5》2018年4月28日五一狂欢活动公告</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2018-04-27 14:03:47" itemprop="dateCreated datePublished" datetime="2018-04-27T14:03:47+08:00">2018-04-27</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-10-14 11:01:14" itemprop="dateModified" datetime="2020-10-14T11:01:14+08:00">2020-10-14</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="《口袋之旅H5》4月28日五一狂欢活动公告"><a href="#《口袋之旅H5》4月28日五一狂欢活动公告" class="headerlink" title="《口袋之旅H5》4月28日五一狂欢活动公告"></a>《口袋之旅H5》4月28日五一狂欢活动公告</h1><p>《口袋之旅H5》将于4月28日10:00-10:30进行停服更新，实际维护结束时间视情况提前或延后，更新结束当日将发放更新礼包：钻石×66、体力×66、进化石礼包×2、黄金盒子×3、特大经验糖果×15。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2018/04/27/%E3%80%8A%E5%8F%A3%E8%A2%8B%E4%B9%8B%E6%97%85H5%E3%80%8B2018%E5%B9%B44%E6%9C%8828%E6%97%A5%E4%BA%94%E4%B8%80%E7%8B%82%E6%AC%A2%E6%B4%BB%E5%8A%A8%E5%85%AC%E5%91%8A/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/15/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><span class="page-number current">16</span><a class="page-number" href="/page/17/">17</a><a class="page-number" href="/page/18/">18</a><a class="extend next" rel="next" href="/page/17/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/15/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><span class="page-number current">16</span><a class="page-number" href="/page/17/">17</a><span class="space">&hellip;</span><a class="page-number" href="/page/19/">19</a><a class="extend next" rel="next" href="/page/17/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -941,7 +1111,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">179</span>
+          <span class="site-state-item-count">181</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -981,8 +1151,6 @@
   </span>
   <span class="author" itemprop="copyrightHolder">PM</span>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
-  </div>
 
         
 
@@ -1020,6 +1188,10 @@
 
 
 
+  
+<script src="/js/local-search.js"></script>
+
+
 
 
 
@@ -1034,6 +1206,35 @@
   
 
   
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : '4Wmb9Kpon1cPt19TEuQ1PqzW-MdYXbMMI',
+      appKey     : 'fQwLOF2qPktsaOuBOFQpnLfV',
+      placeholder: "ヾﾉ≧∀≦)o快来评论吧!",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : true,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
 
 </body>
 </html>

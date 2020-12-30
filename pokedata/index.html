@@ -22,17 +22,18 @@
     var CONFIG = {"hostname":"pokenoti.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="只是个公告备份">
+  <meta name="description" content="数值面板               搜索暂无😅                           红             红1                               特训0             特训1             特训2                                         .btn {">
 <meta property="og:type" content="website">
 <meta property="og:title" content="《口袋之旅H5》活动公告">
-<meta property="og:url" content="https://pokenoti.github.io/tags/%E5%9C%A3%E8%AF%9E/index.html">
+<meta property="og:url" content="https://pokenoti.github.io/pokedata/index.html">
 <meta property="og:site_name" content="《口袋之旅H5》活动公告">
-<meta property="og:description" content="只是个公告备份">
+<meta property="og:description" content="数值面板               搜索暂无😅                           红             红1                               特训0             特训1             特训2                                         .btn {">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-12-25T07:47:39.902Z">
 <meta property="article:author" content="PM">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://pokenoti.github.io/tags/%E5%9C%A3%E8%AF%9E/">
+<link rel="canonical" href="https://pokenoti.github.io/pokedata/">
 
 
 <script id="page-configurations">
@@ -45,7 +46,8 @@
   };
 </script>
 
-  <title>标签: 圣诞 | 《口袋之旅H5》活动公告</title>
+  <title> | 《口袋之旅H5》活动公告
+</title>
   
 
 
@@ -176,58 +178,213 @@
       <div class="main-inner">
         <div class="content-wrap">
           
+  
+  
 
-          <div class="content tag">
+          <div class="content page posts-expand">
             
 
+    
+    
+    
+    <div class="post-block" lang="zh-CN">
+      <header class="post-header">
+
+<h1 class="post-title" itemprop="name headline">
+</h1>
+
+<div class="post-meta">
   
-  
-  
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        <h2 class="collection-header">圣诞
-          <small>标签</small>
-        </h2>
-      </div>
+
+</div>
+
+</header>
 
       
-    <div class="collection-year">
-      <span class="collection-header">2020</span>
+      
+      
+      <div class="post-body">
+          <!DOCTYPE html>
+<html>
+    <header>数值面板</header>
+    <meta charset = "utf-8">
+    <script src = "https://d3js.org/d3.v4.js"></script>
+    <div id = "pm">搜索暂无😅</div>
+    <div id = "panel" class = "sidenav">
+        <form id="form" class="bt" data-toggle="buttons">
+            <input type="radio" name="choice" value="yes" checked>红
+            <input type="radio" name="choice" value="no">红1
+        </form>
+        <form id="form" class="st" data-toggle="buttons">
+            <input type="radio" name="choice" value="yes" checked>特训0
+            <input type="radio" name="choice" value="no">特训1
+            <input type="radio" name="choice" value="no">特训2
+        </form>
     </div>
+    <body>
+        <style>
+            .btn {
+                background-color: #FBF4F5;
+                border: none;
+                color: black;
+                padding: 12px 28px;
+                width: 50%;
+                text-align: center;
+                text-decoration: none;
+                display: block;
+                font-size: 16px;
+            }
+            .sidenav {
+                height: 100%; /* 100% Full-height */
+                width: 0; /* 0 width - change this with JavaScript */
+                position: fixed; /* Stay in place */
+                z-index: 1; /* Stay on top */
+                top: 0; /* Stay at the top */
+                right: 0;
+                background-color: rgb(226, 212, 212);
+                overflow-x: hidden; /* Disable horizontal scroll */
+                padding-top: 60px; /* Place content 60px from the top */
+                transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+            }
+            .bt {
+                position: absolute;
+                top: 450px;
+                right: 315px;
+                transition: 1s;
+            }
+            .st {
+                position: absolute;
+                top: 500px;
+                right: 315px;
+                transition: 1s;
+            }
+        </style>
+        <script>
+            var svg = d3.select("#panel").append("svg");
+            function setSVG() {
+                svg = d3.select("#panel").append("svg")
+                    .attr("width", "100%")
+                    .attr("height", "95%");
+            }
+            
+            function openNav(poke) {
+                document.getElementById("panel").style.width = "50%";
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+                console.log(poke);
+                svg.remove();
+                setSVG();
+                var sw = window.innerWidth / 2;
 
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-12-23T15:27:06+08:00"
-              content="2020-12-23">
-          12-23
-        </time>
+                svg.append('text')
+                    .attr('x', 100)
+                    .attr('y', 50)
+                    .attr('stroke', 'black')
+                    .style("font-size", 19)
+                    .text(poke.pokemonName);
+
+                svg.append('text')
+                    .attr('x', 400)
+                    .attr('y', 50)
+                    .style("font-size", 19)
+                    .text(poke.property);
+                var nameTag = ["血量", "物攻", "物防", "特攻", "特防", "速度"];
+                var tagVal = [+poke.hp, +poke.pa, +poke.pd, +poke.sa, +poke.sd, +poke.speed];
+                var yAxis = [100, 140, 180, 220, 260, 300];
+                var fillColor = ["#A33645", "#DBE2A9", "#9C7934", "#6EB0CF", "#A173D0", "#E9BDD8"];
+                var roundedR = 8;
+                for (var i = 0; i < 6; i++) {
+                    svg.append('text')
+                        .attr('x', 50)
+                        .attr('y', yAxis[i])
+                        .style("font-size", 16)
+                        .text(nameTag[i]);
+
+                    svg.append('text')
+                        .attr('x', 100)
+                        .attr('y', yAxis[i])
+                        .style("font-size", 16)
+                        .text(tagVal[i]);
+
+                    svg.append('rect')
+                        .attr('x', 150)
+                        .attr('y', yAxis[i]-15)
+                        .attr("rx", roundedR)
+                        .attr("ry", roundedR)
+                        .attr('width', sw*0.7)
+                        .attr('height', 15)
+                        .attr('stroke', 'black')
+                        .attr('fill', 'white');
+
+                    svg.append('rect')
+                        .attr('x', 150)
+                        .attr('y', yAxis[i]-15)
+                        .attr("rx", roundedR)
+                        .attr("ry", roundedR)
+                        .attr('width', sw*0.7*tagVal[i]/25000)
+                        .attr('height', 15)
+                        .attr('stroke', 'none')
+                        .attr('fill', fillColor[i]);
+                }
+
+                var modiName = ["突破", "特训", "亲密度", "契约", "性格", "努力值1", "努力值2"];
+                var yAxis2 = [400, 440, 480, 520, 560, 600, 640];
+
+                for (var i = 0; i < 7; i++) {
+                    svg.append('text')
+                        .attr('x', 50)
+                        .attr('y', yAxis2[i])
+                        .style("font-size", 16)
+                        .text(modiName[i]);
+                }
+
+                var md1 = [{label: "红", x: 100, y: 400, function: function(){ fnA(); } },
+                    {label: "红1", x: 150, y: 400, function: function(){ fnA(); } }];
+
+                
+            }
+
+            function closeNav() {
+                document.getElementById("panel").style.width = "0";
+            }
+
+
+            d3.json("https://github.com/PokeNoti/poke_data/raw/main/pokemon.json", function(data) {
+                console.log(data);
+
+                function printBtn() {
+                        for (var i = 0; i < data.length; i++) {
+                        var btn = document.createElement("button");
+                        var t = document.createTextNode(data[i].pokemonName);
+                        btn.appendChild(t);
+
+                        btn.addEventListener("click", openNav.bind(null, data[i]), false);
+
+                        btn.className = "btn";
+                        document.body.appendChild(btn);
+                    }
+                }
+                
+                printBtn();
+                
+            })
+        </script>
+    </body>
+</html>
       </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2020/12/23/%E3%80%8A%E5%8F%A3%E8%A2%8B%E4%B9%8B%E6%97%85H5%E3%80%8B2020%E5%B9%B412%E6%9C%8824%E6%97%A5-%E5%9C%A3%E8%AF%9E%E8%8A%82%E6%B4%BB%E5%8A%A8%E5%85%AC%E5%91%8A/" itemprop="url">
-            <span itemprop="name">《口袋之旅H5》2020年12月24日&圣诞节活动公告</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
+      
+      
+      
     </div>
-  </div>
-  
-  
-  
+    
 
-  
-
+    
+    
+    
 
 
           </div>
           
+    <div class="comments" id="valine-comments"></div>
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -289,14 +446,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">197</span>
+          <span class="site-state-item-count">198</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">47</span>
+        <span class="site-state-item-count">46</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>

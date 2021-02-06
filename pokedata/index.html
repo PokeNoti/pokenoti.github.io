@@ -22,14 +22,14 @@
     var CONFIG = {"hostname":"pokenoti.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="数值面板               搜索暂无😅                           红             红1                               特训0             特训1             特训2                                         .btn {">
+  <meta name="description" content="数值面板               .header {         font-size: 18px;         padding-left: 150px;     }     .btn {         background-color: #ebebeb;         border: none;         border-bottom: 1px dashed rgb(18">
 <meta property="og:type" content="website">
 <meta property="og:title" content="《口袋之旅H5》活动公告">
 <meta property="og:url" content="https://pokenoti.github.io/pokedata/index.html">
 <meta property="og:site_name" content="《口袋之旅H5》活动公告">
-<meta property="og:description" content="数值面板               搜索暂无😅                           红             红1                               特训0             特训1             特训2                                         .btn {">
+<meta property="og:description" content="数值面板               .header {         font-size: 18px;         padding-left: 150px;     }     .btn {         background-color: #ebebeb;         border: none;         border-bottom: 1px dashed rgb(18">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-12-25T07:47:39.902Z">
+<meta property="article:published_time" content="2021-02-06T12:59:16.625Z">
 <meta property="article:author" content="PM">
 <meta name="twitter:card" content="summary">
 
@@ -206,169 +206,804 @@
       <div class="post-body">
           <!DOCTYPE html>
 <html>
-    <header>数值面板</header>
-    <meta charset = "utf-8">
-    <script src = "https://d3js.org/d3.v4.js"></script>
-    <div id = "pm">搜索暂无😅</div>
-    <div id = "panel" class = "sidenav">
-        <form id="form" class="bt" data-toggle="buttons">
-            <input type="radio" name="choice" value="yes" checked>红
-            <input type="radio" name="choice" value="no">红1
-        </form>
-        <form id="form" class="st" data-toggle="buttons">
-            <input type="radio" name="choice" value="yes" checked>特训0
-            <input type="radio" name="choice" value="no">特训1
-            <input type="radio" name="choice" value="no">特训2
-        </form>
+
+<header class="header">数值面板</header>
+<meta charset = "utf-8">
+<script src = "https://d3js.org/d3.v4.js"></script>
+
+<div id = "search_pane">
+<input type="text" id="searchInput" class="searchIn" onkeyup="searchList()" placeholder="输入精灵名称...">
+</div>
+<br class="blanks">
+<div id = "pm_list"></div>
+
+<style>
+    .header {
+        font-size: 18px;
+        padding-left: 150px;
+    }
+    .btn {
+        background-color: #ebebeb;
+        border: none;
+        border-bottom: 1px dashed rgb(189, 189, 189);
+        color: black;
+        padding: 12px 28px;
+        width: 100%;
+        text-align: center;
+        text-decoration: none;
+        display: block;
+        font-size: 16px;
+    }
+    .btn:hover {
+        background-color: #686868;
+        color: white;
+    }
+    .blanks {
+        content: "";
+        display: block;
+        font-size: 100%;
+        height: 0.3em;
+        outline: none;
+    }
+    .searchIn {
+        background-color: #dddddd70;
+        border: none;
+        padding: 8px 12px;
+        display: block;
+        outline: none;
+        
+        border-radius: 25px;
+    }
+    .searchIn:focus {
+        outline-width: 0;
+    }
+</style>
+
+<script>
+    // get JSON func
+    var getJSON = function(url, callback) {
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', url, true);
+        xhr.responseType = 'json';
+        xhr.onload = function() {
+            var status = xhr.status;
+            if (status === 200) {
+                callback(null, xhr.response);
+             } else {
+                callback(status, xhr.response);
+            }
+        };
+        xhr.send();
+    };
+
+    // URL of data_list
+    var json_data_url = "https://raw.githubusercontent.com/Co10/d3_files/master/po/pokemon.json";
+
+    // apply data
+    getJSON(json_data_url, function(err, data) {
+        if (err !== null) {
+            alert('Sorry, something went wrong: ' + err);
+        } else {
+            console.log("all the datas here: ", data);
+
+            // sort by update date
+            data.sort(function(a, b) { return new Date(b.updatedAt).getTime() - new Date(a.updatedAt).getTime(); } )
+
+            printBtn(data);
+        }
+    });
+
+    var current_window_width = window.innerWidth,
+        current_window_height = window.innerHeight;
+
+    // print all the list
+    function printBtn(data) {
+        for (var i = 0; i < data.length; i++) {
+            var myDiv = document.getElementById("pm_list");
+
+            var btn = document.createElement("button");
+            var t = document.createTextNode(data[i].pokemonName);
+            btn.appendChild(t);
+            btn.name = "listsof";
+
+            // open by right
+            if (current_window_width > current_window_height) {
+                btn.style.width = "40%";
+                btn.addEventListener("click", openNav.bind(null, data[i]), false);
+            }
+            else {
+                btn.style.width = "100%";
+                btn.addEventListener("click", openTab.bind(null, data[i]), false);
+            }
+
+            btn.className = "btn";
+            myDiv.appendChild(btn);
+        }
+    }
+
+    // filter list
+    function searchList() {
+        // Declare variables
+        var input, filter, the_List;
+        var the_lists = [];
+        input = document.getElementById("searchInput");
+        filter = input.value;
+        the_list = document.getElementsByName("listsof");
+        for (var ii = 0; ii < the_list.length; ii++) {
+            the_lists.push(the_list[ii].textContent || the_list[ii].innerText);
+        }
+        //console.log(the_list, the_lists, input, filter);
+        // Loop through all list items, and hide those who don't match the search query
+        for (var i = 0; i < the_list.length; i++) {
+            if (the_lists[i].indexOf(filter) != -1 || filter == "") {
+                the_list[i].style.display = "";
+            } else {
+                the_list[i].style.display = "none";
+            }
+        }
+    }
+</script>
+
+<body>
+
+<div id = "panel" class = "sidenav">
+    <div id = "top_pane" class = "pop_nav"></div>
+    <span id = "clse" class = "closebtn" onclick = "closeNav()">←</span>
+
+    <h2 id = "top_name" style="font-weight:bolder;" class="head1"></h2>
+    <div id = "top_pro" class="head2"></div>
+    <div id = "panel2" class = "pane2_svg"></div>
+
+<div id = "text_field_choice1" class = "pane_text">
+    <div id="text_bt" class = "left_align">突破</div>
+    <div id = "breakthrough" class = "switch_b right_align" onclick="appendData()">
+        <input type="radio" id="radio-one" name="switch-one" value="0" checked/>
+        <label for="radio-one">红</label>
+        <input type="radio" id="radio-two" name="switch-one" value="1" />
+        <label for="radio-two">红1</label>
     </div>
-    <body>
-        <style>
-            .btn {
-                background-color: #FBF4F5;
-                border: none;
-                color: black;
-                padding: 12px 28px;
-                width: 50%;
-                text-align: center;
-                text-decoration: none;
-                display: block;
-                font-size: 16px;
-            }
-            .sidenav {
-                height: 100%; /* 100% Full-height */
-                width: 0; /* 0 width - change this with JavaScript */
-                position: fixed; /* Stay in place */
-                z-index: 1; /* Stay on top */
-                top: 0; /* Stay at the top */
-                right: 0;
-                background-color: rgb(226, 212, 212);
-                overflow-x: hidden; /* Disable horizontal scroll */
-                padding-top: 60px; /* Place content 60px from the top */
-                transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
-            }
-            .bt {
-                position: absolute;
-                top: 450px;
-                right: 315px;
-                transition: 1s;
-            }
-            .st {
-                position: absolute;
-                top: 500px;
-                right: 315px;
-                transition: 1s;
-            }
-        </style>
-        <script>
-            var svg = d3.select("#panel").append("svg");
-            function setSVG() {
-                svg = d3.select("#panel").append("svg")
-                    .attr("width", "100%")
-                    .attr("height", "95%");
-            }
+</div>
+<span class="divider"></span>
+<div id = "text_field_choice2" class = "pane_text">
+    <div id="text_st" class = "left_align">特训</div>
+    <div id = "training" class = "switch_b right_align" onclick="appendData()">
+        <input type="radio" id="radio-three" name="switch-two" value="0" checked/>
+        <label for="radio-three">特训0</label>
+        <input type="radio" id="radio-four" name="switch-two" value="1" />
+        <label for="radio-four">特训1</label>
+        <input type="radio" id="radio-five" name="switch-two" value="2" />
+        <label for="radio-five">特训2</label>
+    </div>
+</div>
+<span class="divider"></span>
+<div id = "text_field_choice3" class = "pane_text">
+    <div id="text_in" class = "left_align">亲密度</div>
+    <div id = "intimacy" class = "right_align" onclick="appendData()">
+        <label class = "switch">
+            <input id = "intimacy1" type = "checkbox">
+            <span class = "slider round"></span>
+        </label>
+    </div>
+</div>
+<span class="divider"></span>
+<div id = "text_field_choice4" class = "pane_text">
+    <div id="text_co" class = "left_align">契约</div>
+    <div id = "contract" class = "right_align" onclick="appendData()">
+        <label class = "switch">
+            <input id = "contract1" type = "checkbox">
+            <span class = "slider round"></span>
+        </label>
+    </div>
+</div>
+<span class="divider"></span>
+<div id = "text_field_choice42" class = "pane_text">
+    <div id="text_gh" class = "left_align">公会加成</div>
+    <div id="additionC" class = "mid_align" style="color: rgb(116, 116, 116);">攻: 
+        <button type="button" id="attack1" class = "inputC" onclick="sliderA1()">–</button>
+        <span id="attackss" class="range-slider__value">15%</span>
+        <button type="button" id="attack2" class = "inputC" onclick="sliderA2()">+</button>
+        &nbsp;防: 
+        <button type="button" id="defend1" class = "inputC" onclick="sliderD1()">–</button>
+        <span id="defendss" class="range-slider__value">15%</span>
+        <button type="button" id="defend2" class = "inputC" onclick="sliderD2()">+</button>
+    </div>
+    
+    <div id = "addi" class = "right_align" onclick="appendData()">
+        <label class = "switch">
+            <input id = "add1" type = "checkbox">
+            <span class = "slider round"></span>
+        </label>
+    </div>
+</div>
+<span class="divider"></span>
+<div id = "text_field_choice44" class = "pane_text">
+    <div id="text_carry" class = "left_align">道具</div>
+    <div id = "helditem" class = "character_select right_align">
+        <select id = "item1" class="select-cus1" onclick="appendData()">
+            <option value="0">无</option>
+            <option value="1">限定招式头巾</option>
+            <option value="2">限定招式眼镜</option>
+            <option value="3">限定招式围巾</option>
+            <option value="4">道具魔术胶</option>
+            <option value="5">好人卡</option>
+            <option value="6">黄金猫粮</option>
+            <option value="7">突击装甲/棉被</option>
+            <option value="8">突击背心</option>
+            <option value="9">黄金狗粮</option>
+            <option value="10">精密装甲</option>
+            <option value="11">贺岁杯头巾</option>
+            <option value="12">金猪杯黄金眼镜</option>
+            <option value="13">金猪杯黄金围巾</option>
+            <option value="21">血量健身环</option>
+            <option value="22">物攻健身环</option>
+            <option value="23">物防健身环</option>
+            <option value="24">特攻健身环</option>
+            <option value="25">特防健身环</option>
+        </select>
+    </div>
+</div>
+<span class="divider"></span>
+<div id = "text_field_choice5" class = "pane_text">
+    <div id="text_ch" class = "left_align">性格</div>
+    <div id = "character" class = "character_select right_align">
+        <select id = "character1" class="select-cus1" onclick="appendData()">
+            <option value="0">平衡</option>
+            <option value="1">开朗(速度↑特攻↓)</option>
+            <option value="2">固执(物攻↑特攻↓)</option>
+            <option value="3">胆小(速度↑物攻↓)</option>
+            <option value="4">保守(特攻↑物攻↓)</option>
+            <option value="5">勇敢(物攻↑速度↓)</option>
+            <option value="6">冷静(速度↑速度↓)</option>
+            <option value="7">淘气(物防↑特攻↓)</option>
+            <option value="8">慎重(特防↑特攻↓)</option>
+            <option value="9">大胆(物防↑物攻↓)</option>
+            <option value="10">沉着(特防↑物攻↓)</option>
+            <option value="11">悠闲(物防↑速度↓)</option>
+            <option value="12">狂妄(速度↑速度↓)</option>
+            <option value="13">急躁(速度↑物防↓)</option>
+            <option value="14">天真(速度↑特防↓)</option>
+            <option value="15">孤独(物攻↑物防↓)</option>
+            <option value="16">调皮(物攻↑特防↓)</option>
+            <option value="17">稳重(特攻↑物防↓)</option>
+            <option value="18">马虎(特攻↑特防↓)</option>
+            <option value="19">温顺(特防↑物防↓)</option>
+            <option value="20">乐天(物防↑特防↓)</option>
+        </select>
+    </div>
+</div>
+<span class="divider"></span>
+<div id = "text_field_choice6" class = "pane_text">
+    <div id="text_ef" class = "left_align">努力值</div>
+    <div id = "effort" class = "switch_b switch_b1 right_align" onclick="appendData()" onchange="onlyTwoChecked()">
+        <input type="checkbox" id="radio-0" name="switch-six" value="0"/>
+        <label for="radio-0">血量</label>
+        <input type="checkbox" id="radio-1" name="switch-six" value="1" />
+        <label for="radio-1">物攻</label>
+        <input type="checkbox" id="radio-2" name="switch-six" value="2" />
+        <label for="radio-2">物防</label>
+        <input type="checkbox" id="radio-3" name="switch-six" value="3"/>
+        <label for="radio-3">特攻</label>
+        <input type="checkbox" id="radio-4" name="switch-six" value="4" />
+        <label for="radio-4">特防</label>
+        <input type="checkbox" id="radio-5" name="switch-six" value="5" />
+        <label for="radio-5">速度</label>
+    </div>
+</div>
+<span class="divider"></span>
+
+</div>
+
+</body>
+
+<style>
+    .sidenav {
+        height: 100%; /* 100% Full-height */
+        width: 0; /* 0 width - change this with JavaScript */
+        position: fixed; /* Stay in place */
+        z-index: 1; /* Stay on top */
+        top: 0; /* Stay at the top */
+        right: 0;
+        background-color: rgb(212, 218, 226);
+        overflow-x: hidden; /* Disable horizontal scroll */
+        padding-top: 60px; /* Place content 60px from the top */
+        transition: ease 0.3s;
+    }
+    .sidenav .pop_nav {
+        position: fixed; /* Stay in place */
+        top: 0; /* Stay at the top */
+        background-color: rgb(30, 125, 214);
+        width: 100%;
+        height: 25px;
+        color: white;
+        text-align: center;
+        text-decoration: none;
+        display: block;
+        font-size: 16px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+    .sidenav .closebtn {
+        position: fixed;
+        top: 0;
+        left: 0;
+        padding-left: 2%;
+        font-size: 20px;
+        color: white;
+        display: none;
+        cursor: pointer;
+    }
+    .head1 {
+        position: absolute;
+        display: inline-block;
+        top: 30px;
+        left: 5%;
+        right: 10%;
+        text-align: left;
+    }
+    .head2 {
+        position: absolute;
+        display: inline-block;
+        top: 50px;
+        left: 5%;
+        right: 10%;
+        text-align: right;
+    }
+    .pane_text {
+        position: static;
+        left: 0;
+        padding-left: 5%;
+        padding-top: 8px;
+        line-height: 2;
+        font-size: 16px;
+    }
+    .pane2_svg {
+        padding-left: 10%;
+        padding-right: 10%;
+        padding-top: 20px;
+    }
+    .divider {
+        position: absolute;
+        left: 5%;
+        right: 10%;
+        padding-top: 3px;
+        border-bottom: 1px solid rgba(129, 129, 129, 0.575);
+    }
+    .back_container {
+        box-shadow: 5px 10px;
+    }
+
+    .left_align {
+        display: inline;
+    }
+
+    .right_align {
+        display: inline;
+        float: right;
+        padding-right: 10%;
+    }
+
+    /* The switch - the box around the slider */
+    .switch {
+        position: relative;
+        display: inline-block;
+        width: 38px;
+        height: 10px;
+    }
+
+    /* Hide default HTML checkbox */
+    .switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+
+    /* The slider */
+    .slider {
+        position: absolute;
+        cursor: pointer;
+        margin-bottom: -13px;
+        margin-top: 13px;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #ccc;
+        -webkit-transition: .2s;
+        transition: .2s;
+    }
+
+    /* the round */
+    .slider:before {
+        position: absolute;
+        content: "";
+        height: 16px;
+        width: 16px;
+        left: 0px;
+        bottom: -3px;
+        background-color: white;
+        -webkit-transition: .2s;
+        transition: .2s;
+    }
+
+    input:checked + .slider {
+        background-color: #2196F3;
+    }
+
+    input:focus + .slider {
+        box-shadow: 0 0 1px #2196F3;
+    }
+
+    input:checked + .slider:before {
+        -webkit-transform: translateX(26px);
+        -ms-transform: translateX(26px);
+        transform: translateX(26px);
+    }
+
+    /* Rounded sliders */
+    .slider.round {
+        border-radius: 20px;
+    }
+
+    .slider.round:before {
+        border-radius: 50%;
+    }
+
+    .switch_b {
+        display: inline-flex;
+        margin-bottom: 8px;
+        overflow: hidden;
+    }
+    .switch_b input {
+        position: absolute;
+        clip: rect(0, 0, 0, 0);
+        height: 1px;
+        width: 1px;
+        border: 0;
+        overflow: hidden;
+    }
+    .switch_b label {
+        background-color: #e4e4e4;
+        color: rgb(0, 0, 0);
+        font-size: 14px;
+        line-height: 1;
+        text-align: center;
+        padding: 8px 16px;
+        margin-right: -1px;
+        border: 1px solid rgba(0, 0, 0, 0.2);
+        box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px rgba(255, 255, 255, 0.1);
+        transition: all 0.1s ease-in-out;
+    }
+    .switch_b1 label {
+        font-size: 12px;
+        padding: 5px 10px;
+    }
+    .switch_b1 {
+        margin-top: 4px;
+    }
+    .switch_b label:hover {
+        cursor: pointer;
+    }
+    .switch_b input:checked + label {
+        color: rgb(255, 255, 255);
+        background-color: #2196F3;
+        box-shadow: none;
+    }
+    .switch_b label:first-of-type {
+        border-radius: 16px 0px 0 16px;
+    }
+    .switch_b label:last-of-type {
+        border-radius: 0 16px 16px 0;
+    }
+
+    /* SELECT CHARACTER */
+    .select-cus1 {
+        outline: none;
+        font-size: 15px;
+        border-radius: 16px;
+        border: 1px solid #6b676794;
+    }
+
+    .inputC {
+        outline: none;
+        color: white;
+        cursor: pointer;
+        height: 20px;
+        width: 20px;
+        border: none;
+        border-radius: 50%;
+        text-align: center;
+        background-color: #2196F3;
+        box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+
+    .mid_align {
+        display: inline;
+        padding-left: 10%;
+    }
+    
+</style>
+
+<script>
+    var pokem;
+    function openNav(poke) {
+        clearDefault();
+        console.log("poke", poke);
+        pokem = poke;
+        // get panel
+        document.getElementById("panel").style.width = "60%";
+        document.getElementById("clse").style.display = "none";
+        document.getElementById("top_pane").style.display = "none";
+
+        appendData();
+    }
+
+    function openTab(poke) {
+        clearDefault();
+        console.log("poke", poke);
+        pokem = poke;
+        document.getElementById("panel").style.width = "100%";
+        
+        var append_top = document.getElementById("top_pane");
+        append_top.innerHTML = poke.pokemonName;
+
+        document.getElementById("clse").style.display = "block";
+
+        appendData();
+    }
+
+    function closeNav() {
+        document.getElementById("panel").style.width = "0";
+        document.getElementById("clse").style.display = "none";
+    }
+
+    function clearDefault() {
+        document.getElementById("character1").value = "0";
+        for (var ii = 0; ii < 6; ii++) {
+            document.getElementById(checkedString[ii]).checked =false;
+        }
+    }
+
+    // select and append svg
+    var svg = d3.select("#panel2").append("svg");
             
-            function openNav(poke) {
-                document.getElementById("panel").style.width = "50%";
+    function setSVG() {
+        svg = d3.select("#panel2").append("svg")
+            .attr("width", "100%")
+            .attr("height", "270px")
+    }
 
-                console.log(poke);
-                svg.remove();
-                setSVG();
-                var sw = window.innerWidth / 2;
+    function divideString(ori_string) {
+        separatedArray = []; 
+ 
+        // index of end of the last string  
+        let previousIndex = 0; 
+        var i;
+        for (i = 0; i < ori_string.length; i++) { 
+            // check the character for a comma 
+            if (ori_string[i] == ',' || ori_string[i] == ', ') { 
+                // split the string from the last index to the comma 
+                separated = ori_string.slice(previousIndex, i); 
+                separatedArray.push(separated); 
+                // update the index of the last string 
+                previousIndex = i + 1; 
+            } 
+        } 
 
-                svg.append('text')
-                    .attr('x', 100)
-                    .attr('y', 50)
-                    .attr('stroke', 'black')
-                    .style("font-size", 19)
-                    .text(poke.pokemonName);
+        // push the last string into the array 
+        separatedArray.push(ori_string.slice(previousIndex, i));
+        return separatedArray;
+    }
 
-                svg.append('text')
-                    .attr('x', 400)
-                    .attr('y', 50)
-                    .style("font-size", 19)
-                    .text(poke.property);
-                var nameTag = ["血量", "物攻", "物防", "特攻", "特防", "速度"];
-                var tagVal = [+poke.hp, +poke.pa, +poke.pd, +poke.sa, +poke.sd, +poke.speed];
-                var yAxis = [100, 140, 180, 220, 260, 300];
-                var fillColor = ["#A33645", "#DBE2A9", "#9C7934", "#6EB0CF", "#A173D0", "#E9BDD8"];
-                var roundedR = 8;
-                for (var i = 0; i < 6; i++) {
-                    svg.append('text')
-                        .attr('x', 50)
-                        .attr('y', yAxis[i])
-                        .style("font-size", 16)
-                        .text(nameTag[i]);
+    function appendData() {
+        svg.remove();
+        setSVG();
+        updateData();
+    }
+    
+    var two_check = [false, false, false, false, false, false];
+    var checkedString = ["radio-0", "radio-1", "radio-2", "radio-3", "radio-4", "radio-5"];
 
-                    svg.append('text')
-                        .attr('x', 100)
-                        .attr('y', yAxis[i])
-                        .style("font-size", 16)
-                        .text(tagVal[i]);
+    function updateData() {
+        var sw = window.innerWidth / 2;
 
-                    svg.append('rect')
-                        .attr('x', 150)
-                        .attr('y', yAxis[i]-15)
-                        .attr("rx", roundedR)
-                        .attr("ry", roundedR)
-                        .attr('width', sw*0.7)
-                        .attr('height', 15)
-                        .attr('stroke', 'black')
-                        .attr('fill', 'white');
+        if (current_window_width <= current_window_height) {
+            sw *= 1.5;
+        }
 
-                    svg.append('rect')
-                        .attr('x', 150)
-                        .attr('y', yAxis[i]-15)
-                        .attr("rx", roundedR)
-                        .attr("ry", roundedR)
-                        .attr('width', sw*0.7*tagVal[i]/25000)
-                        .attr('height', 15)
-                        .attr('stroke', 'none')
-                        .attr('fill', fillColor[i]);
-                }
+        var append_top = document.getElementById("top_name");
+        append_top.innerHTML = pokem.pokemonName;
 
-                var modiName = ["突破", "特训", "亲密度", "契约", "性格", "努力值1", "努力值2"];
-                var yAxis2 = [400, 440, 480, 520, 560, 600, 640];
+        var append_top = document.getElementById("top_pro");
+        append_top.innerHTML = pokem.property;
 
-                for (var i = 0; i < 7; i++) {
-                    svg.append('text')
-                        .attr('x', 50)
-                        .attr('y', yAxis2[i])
-                        .style("font-size", 16)
-                        .text(modiName[i]);
-                }
+        // all variables used
+        var nameTag = ["血量", "物攻", "物防", "特攻", "特防", "速度"];
+        var tagVal = [+pokem.hp, +pokem.pa, +pokem.pd, +pokem.sa, +pokem.sd, +pokem.speed];
+        
+        var correction1 = [0,0,0,0,0,0];
+        var correction2 = [0,0,0,0,0,0];
+        var correction_c = [ [1,1,1,1,1,1], [1,1,1,0.9,1,1.1], [1,1.1,1,0.9,1,1], [1,0.9,1,1,1,1.1], [1,0.9,1,1.1,1,1], 
+[1,1.1,1,1,1,0.9], [1,1,1,1.1,1,0.9], [1,1,1.1,0.9,1,1], [1,1,1,0.9,1.1,1], [1,0.9,1.1,1,1,1], 
+[1,0.9,1,1,1.1,1], [1,1,1.1,1,1,0.9], [1,1,1,1,1.1,0.9], [1,1,0.9,1,1,1.1], [1,1,1,1,0.9,1.1], 
+[1,1.1,0.9,1,1,1], [1,1.1,1,1,0.9,1], [1,1,0.9,1.1,1,1], [1,1,1,1.1,0.9,1], [1,1,0.9,1,1.1,1], [1,1,1.1,1,0.9,1] ]
+        var correct_add = [1,1,1,1,1,1];
+        var held_item = [ [1,1,1,1,1,1], [1,1.5,1,1,1,1], [1,1,1,1.5,1,1], [1,1,1,1,1,1.5], [1,1,1.08,1,1,1], [1,1,1.15,1,1,1], [1,1,1,1,1.15,1], 
+[1,1,1.5,1,1,1], [1,1,1,1,1.5,1], [1.15,1,1,1,1,1], [1,1,1,1,1.1,1], [1,1.55,1,1,1,1], [1,1,1,1.55,1,1], [1,1,1,1,1,1.55] ];
+        var held_item2 = [1014,1014,1014,1014,0];
 
-                var md1 = [{label: "红", x: 100, y: 400, function: function(){ fnA(); } },
-                    {label: "红1", x: 150, y: 400, function: function(){ fnA(); } }];
-
-                
+        var bt_v = document.getElementById("radio-two").checked;
+        var st_0 = document.getElementById("radio-three").checked;
+        var st_2 = document.getElementById("radio-five").checked;
+        var in_v = document.getElementById("intimacy1").checked;
+        var co_v = document.getElementById("contract1").checked;
+        var ad_v = document.getElementById("add1").checked;
+        var character_selected = +document.getElementById("character1").value;
+        var item_selected = + document.getElementById("item1").value;
+        if (bt_v == true) { // enable 红1
+            var newarray1 = divideString(pokem.red1);
+            for (var ii = 0; ii < 6; ii++) {
+                correction1[ii] += (+newarray1[ii]);
             }
-
-            function closeNav() {
-                document.getElementById("panel").style.width = "0";
+        }
+        if (st_0 == true) { // enable 特0
+            var newarray2 = divideString(pokem.specialTraining);
+            for (var ii = 0; ii < 6; ii++) {
+                correction1[ii] -= (+newarray2[ii]);
             }
-
-
-            d3.json("https://github.com/PokeNoti/poke_data/raw/main/pokemon.json", function(data) {
-                console.log(data);
-
-                function printBtn() {
-                        for (var i = 0; i < data.length; i++) {
-                        var btn = document.createElement("button");
-                        var t = document.createTextNode(data[i].pokemonName);
-                        btn.appendChild(t);
-
-                        btn.addEventListener("click", openNav.bind(null, data[i]), false);
-
-                        btn.className = "btn";
-                        document.body.appendChild(btn);
-                    }
+        }
+        if (st_2 == true) { // enable 特2
+            var newarray3 = divideString(pokem.st2);
+            for (var ii = 0; ii < 6; ii++) {
+                correction1[ii] += (+newarray3[ii]);
+            }
+        }
+        if (in_v == true) { // enable 亲密度
+            var newarray4 = [255, 255, 255, 255, 255, 100];
+            for (var ii = 0; ii < 6; ii++) {
+                correction2[ii] += newarray4[ii];
+            }
+        }
+        if (co_v == true) { // enable 契约
+            for (var ii = 0; ii < 6; ii++) {
+                correction2[ii] += 800;
+            }
+        }
+        if (ad_v == true) { // enable 公会加成
+            var temp_attack = 1 + sli_as_temp * 55 / 10000;
+            var temp_defend = 1 + sli_ds_temp * 55 / 10000;
+            correct_add[1] *= temp_attack;
+            correct_add[3] *= temp_attack;
+            correct_add[2] *= temp_defend;
+            correct_add[4] *= temp_defend;
+        }
+        for (var ii = 0; ii < 6; ii++) { // enable 努力值
+            two_check[ii] = document.getElementById(checkedString[ii]).checked;
+            if (two_check[ii] == true) {
+                correction2[ii] += 2028;
+                if (item_selected - 21 == ii) {
+                    correction2[ii] += 1014;
                 }
-                
-                printBtn();
-                
-            })
-        </script>
-    </body>
+            }
+        }
+
+        if (item_selected >= 0 && item_selected < 30) {
+            var select_item_temp = item_selected;
+            if (select_item_temp >= 21 && select_item_temp <= 25) {
+                select_item_temp = 0;
+            }
+            for (var ii = 0; ii < 6; ii++) {
+                var temp_tag_v = tagVal[ii];
+                tagVal[ii] = Math.round((temp_tag_v + correction1[ii]) * correction_c[character_selected][ii]
+                    * held_item[select_item_temp][ii] * correct_add[ii] + correction2[ii]);
+            }
+        }
+        
+        var yAxis = [80, 120, 160, 200, 240, 280];
+        var yAxisUp = -40;
+        var fillColor = ["#A33645", "#DBE2A9", "#9C7934", "#6EB0CF", "#A173D0", "#E9BDD8"];
+        var roundedR = 8;
+        svg.append('rect')
+            .classed("back_container", true)
+            .attr('x', 0)
+            .attr('y', 10)
+            .attr("rx", 10)
+            .attr("ry", 10)
+            .attr('width', '100%')
+            .attr('height', 250)
+            .attr('stroke', 'none')
+            .attr('fill', '#ececec')
+            .attr("style", "box-shadow: 5px 10px;");
+
+        for (var i = 0; i < 6; i++) {
+            svg.append('text')
+                .attr('x', 5)
+                .attr('y', yAxis[i]+yAxisUp)
+                .style("font-size", 16)
+                .text(nameTag[i]);
+
+            svg.append('text')
+                .attr('x', 50)
+                .attr('y', yAxis[i]+yAxisUp)
+                .style("font-size", 16)
+                .text(tagVal[i]);
+
+            svg.append('rect')
+                .attr('x', 100)
+                .attr('y', yAxis[i]-15+yAxisUp)
+                .attr("rx", roundedR)
+                .attr("ry", roundedR)
+                .attr('width', sw*0.7)
+                .attr('height', 15)
+                .attr('stroke', 'black')
+                .attr('fill', 'white');
+
+            svg.append('rect')
+                .attr('x', 100)
+                .attr('y', yAxis[i]-15+yAxisUp)
+                .attr("rx", roundedR)
+                .attr("ry", roundedR)
+                .attr('width', sw*0.7*tagVal[i]/25000)
+                .attr('height', 15)
+                .attr('stroke', 'none')
+                .attr('fill', fillColor[i]);
+        }
+    }
+
+    function onlyTwoChecked() {
+        var checkedNum = 0;
+        for (var iii = 0; iii < 6; iii++) {
+            two_check[iii] = document.getElementById(checkedString[iii]).checked;
+            if (two_check[iii] == true) {
+                checkedNum++;
+                if (checkedNum === 3) {
+                    checkedNum--;
+                    two_check[iii] == false;
+                    document.getElementById(checkedString[iii]).checked = false;
+                    appendData();
+                }
+            }
+        }
+    }
+
+    var sli_as = document.getElementById("attackss");
+    var sli_as_temp = parseInt(sli_as.innerHTML, 10);
+    var sli_ds = document.getElementById("defendss");
+    var sli_ds_temp = parseInt(sli_ds.innerHTML, 10);
+
+    function sliderA1() {
+        if (sli_as_temp > 0){
+            sli_as_temp--;
+        }
+        sli_as.innerHTML = sli_as_temp + "%";
+        // change in ()
+        appendData();
+    }
+    function sliderA2() {
+        if (sli_as_temp < 25){
+            sli_as_temp++;
+        }
+        sli_as.innerHTML = sli_as_temp + "%";
+        // change in ()
+        appendData();
+    }
+    function sliderD1() {
+        if (sli_ds_temp > 0){
+            sli_ds_temp--;
+        }
+        sli_ds.innerHTML = sli_ds_temp + "%";
+        // change in ()
+        appendData();
+    }
+    function sliderD2() {
+        if (sli_ds_temp < 25){
+            sli_ds_temp++;
+        }
+        sli_ds.innerHTML = sli_ds_temp + "%";
+        // change in ()
+        appendData();
+    }
+</script>
+
+
 </html>
       </div>
       
@@ -431,6 +1066,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#top_name"><span class="nav-number">1.</span> <span class="nav-text"></span></a></li></ol></div>
       </div>
       <!--/noindex-->
 

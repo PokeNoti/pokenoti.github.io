@@ -139,7 +139,9 @@
     };
 
     // URL of data_list
-    var json_data_url = "https://raw.githubusercontent.com/Co10/d3_files/master/po/pokemondata.json";
+    //var json_data_url = "https://raw.githubusercontent.com/Co10/d3_files/master/po/pokemondata.json";
+
+    var json_data_url = "/pokedata/pokemondata.json";
 
     var localdata;
 
@@ -437,14 +439,15 @@
 
 <style>
     .sidenav_m {
-        height: 100%; /* 100% Full-height */
         width: 0; /* 0 width - change this with JavaScript */
         position: fixed; /* Stay in place */
         z-index: 1; /* Stay on top */
         top: 0; /* Stay at the top */
         right: 0;
+        bottom: 0;
         background-color: rgb(212, 218, 226);
         overflow-x: hidden; /* Disable horizontal scroll */
+        overflow-y: auto;
         padding-top: 60px; /* Place content 60px from the top */
         transition: ease 0.3s;
     }

@@ -3,9 +3,11 @@
 
 <meta charset = "utf-8">
 <script src = "https://d3js.org/d3.v4.js"></script>
+
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 </head>
+
 <div id = "big_dom" class = "big_dom">
 
 <div id = "search_pane">
@@ -21,6 +23,29 @@
         <input type="radio" id="radiot_3" name="switch_4" value="3" />
         <label for="radiot_3">编号↑</label>
     </div>
+</div>
+<div id = "typesele" class = "type_select">
+    <select id = "typese" class="type_se" onclick="typeFilter()">
+        <option value="0">全部</option>
+        <option value="1">水</option>
+        <option value="2">火</option>
+        <option value="3">草</option>
+        <option value="4">岩石</option>
+        <option value="5">地上</option>
+        <option value="6">钢</option>
+        <option value="7">一般</option>
+        <option value="8">幽灵</option>
+        <option value="9">妖精</option>
+        <option value="10">恶</option>
+        <option value="11">超能</option>
+        <option value="12">格斗</option>
+        <option value="13">飞行</option>
+        <option value="14">毒</option>
+        <option value="15">虫</option>
+        <option value="16">龙</option>
+        <option value="17">电</option>
+        <option value="18">冰</option>
+    </select>
 </div>
 
 </div>
@@ -126,6 +151,22 @@
         display: inline;
         float: left;
     }
+    .type_select {
+        display: inline;
+    }
+    .type_se {
+        background-color: rgb(90, 90, 90);
+        color: white;
+        display: inline-block;
+        text-align: center;
+        border: none;
+        outline: none;
+        border-radius: 25px;
+        border: 1px solid #6b676794;
+    }
+    .type_se:focus {
+        outline-width: 0;
+    }
 </style>
 
 <script>
@@ -147,9 +188,7 @@
 
     // URL of data_list
     //var json_data_url = "https://raw.githubusercontent.com/Co10/d3_files/master/po/pokemondata.json";
-
     var json_data_url = "/pokedata/pokemondata.json";
-
     var localdata;
 
     // apply data
@@ -230,7 +269,7 @@
             var btn2 = document.createElement("div");
             var t2 = document.createTextNode(localdata[i].discount + "折");
             var btn_img = document.createElement("img");
-            btn_img.src = "/img/" + localdata[i].img;
+            btn_img.src = "/img_small/" + localdata[i].img;
             btn_img.setAttribute("style", "width: 18px; height: 18px;");
             btn_img.setAttribute("class", "btnImg");
             btn2.setAttribute("class", "b_discount");
@@ -264,6 +303,7 @@
 
     // filter list
     function searchList() {
+        document.getElementById("typese").value = "0";
         // Declare variables
         var input, filter, the_List;
         input = document.getElementById("searchInput");
@@ -283,6 +323,23 @@
             }
         }
     }
+
+    function typeFilter() {
+        document.getElementById("searchInput").value = "";
+        var type_selected = +document.getElementById("typese").value;
+        the_list = document.getElementsByName("listsof");
+        var all_types = ["", "水", "火", "草", "岩石", "地上", "钢", "一般", "幽灵", "妖精", "恶", "超能", "格斗", "飞行", "毒", "虫", "龙", "电", "冰"];
+        for (var i = 0; i < the_list.length; i++) {
+            if (the_list[i].dataset.type1.indexOf(all_types[type_selected]) != -1 || 
+                the_list[i].dataset.type2.indexOf(all_types[type_selected]) != -1 ||
+                type_selected == 0) {
+                the_list[i].style.display = "";
+            } else {
+                the_list[i].style.display = "none";
+            }
+        }
+    
+    }
 </script>
 
 <body>
@@ -290,6 +347,7 @@
 <div id = "panel" class = "sidenav_m">
     <div id = "top_pane" class = "pop_nav_m"></div>
     <span id = "clse" class = "closebtn" onclick = "closeNav()">←</span>
+    <div id ="top_pane2" class = "top_pp2"></div>
 
     <h2 id = "top_name" style="font-weight:bolder;" class="head1"></h2>
     <div id = "top_pro" class="head2"></div>
@@ -444,13 +502,33 @@
     </div>
 </div>
 <span class="divider"></span>
-
+<div id = "text_special_1" class = "pane_text special_ava">
+    <div id="text_spe" class = "left_align"></div>
+    <div id = "special_" class = "right_align" onclick="appendData()">
+        <label class = "switch">
+            <input id = "spe" type = "checkbox">
+            <span class = "slider round"></span>
+        </label>
+    </div>
+</div>
+<span id="text_special_2" class="divider special_ava"></span>
+<div id = "text_special_3" class = "pane_text special_ava">
+    <div id="text_spe2" class = "left_align"></div>
+    <div id = "special_2" class = "right_align" onclick="appendData()">
+        <label class = "switch">
+            <input id = "spe2" type = "checkbox">
+            <span class = "slider round"></span>
+        </label>
+    </div>
+</div>
+<span id="text_special_4" class="divider special_ava"></span>
 </div>
 
 </body>
 
 <style>
     .sidenav_m {
+        
         width: 0; /* 0 width - change this with JavaScript */
         position: fixed; /* Stay in place */
         z-index: 1; /* Stay on top */
@@ -468,12 +546,16 @@
         top: 0; /* Stay at the top */
         background-color: rgb(30, 125, 214);
         width: 100%;
-        height: 25px;
+        height: 40px;
         color: white;
         text-align: center;
+        margin: auto;
+        padding: auto;
+        vertical-align: middle;
+        line-height: 40px;
         text-decoration: none;
         display: none;
-        font-size: 16px;
+        font-size: 18px;
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     }
     .sidenav_m .closebtn {
@@ -481,15 +563,25 @@
         top: 0;
         left: 0;
         padding-left: 2%;
-        font-size: 20px;
+        font-size: 28px;
         color: white;
         display: none;
         cursor: pointer;
     }
+    .top_pp2 {
+        display: block;
+        position: absolute;
+        top: 7px;
+        right: 2px;
+        float: right;
+        font-size: 16px;
+        padding-right: 8px;
+        color: white;
+    }
     .head1 {
         position: absolute;
         display: inline-block;
-        top: 30px;
+        top: 0px;
         left: 5%;
         right: 10%;
         text-align: left;
@@ -497,7 +589,7 @@
     .head2 {
         position: absolute;
         display: inline-block;
-        top: 50px;
+        top: 30px;
         left: 5%;
         right: 10%;
         text-align: right;
@@ -537,9 +629,11 @@
     }
     .pm_img {
     	display: block;
+        width: 100%;
 		margin-left: auto;
 		margin-right: auto;
     }
+
 
     /* The switch - the box around the slider */
     .switch {
@@ -634,7 +728,7 @@
     }
     .switch_b1 label {
         font-size: 12px;
-        padding: 5px 10px;
+        padding: 4px 8px;
     }
     .switch_b1 {
         margin-top: 4px;
@@ -661,6 +755,9 @@
         border-radius: 16px;
         border: 1px solid #6b676794;
     }
+    .select-cus1:focus {
+        outline-width: 0;
+    }
 
     .inputC {
         outline: none;
@@ -680,13 +777,18 @@
         padding-left: 1%;
     }
     
+    .special_ava {
+        display: none;
+    }
 </style>
 
 <script>
     var pokem;
+    var current_states = 0;
     function openNav(poke) {
+        current_states = 1;
         clearDefault();
-        console.log("poke", poke);
+        //console.log("poke", poke);
         pokem = poke;
         // get panel
         document.getElementById("panel").style.width = "60%";
@@ -697,6 +799,7 @@
     }
 
     function openTab(poke) {
+        current_states = 2;
         clearDefault();
         console.log("poke", poke);
         pokem = poke;
@@ -705,6 +808,12 @@
         var append_top = document.getElementById("top_pane");
         append_top.innerHTML = poke.name;
 
+        var append_top2 = document.getElementById("top_pane2");
+        append_top2.innerHTML = poke.type1;
+        if (poke.type2 != "") {
+            append_top2.innerHTML = poke.type1 + " | " + poke.type2;
+        }
+
         document.getElementById("clse").style.display = "block";
         document.getElementById("top_pane").style.display = "block";
 
@@ -712,6 +821,7 @@
     }
 
     function closeNav() {
+        current_states = 0;
         document.getElementById("panel").style.width = "0";
         document.getElementById("clse").style.display = "none";
     }
@@ -721,10 +831,27 @@
         document.getElementById("character1").value = "0";
         document.getElementById("text_field_choice41").style.display = "none";
         document.getElementById("skin_divider").style.display = "none";
+        document.getElementById("spe").checked = false;
+        document.getElementById("text_special_1").style.display = "none";
+        document.getElementById("text_special_2").style.display = "none";
+        document.getElementById("text_special_3").style.display = "none";
+        document.getElementById("text_special_4").style.display = "none";
+        document.getElementById("spe2").checked = false;
+
+
         for (var ii = 0; ii < 6; ii++) {
             document.getElementById(checkedString[ii]).checked =false;
         }
     }
+
+    document.addEventListener('backbutton', function() {
+        if (current_states == 0 || current_states == 1) {
+            window.location = "/";
+        }
+        if (current_states == 2) {
+            closeNav();
+        }
+    });
 
     // select and append svg
     var svg = d3.select("#panel2").append("svg");
@@ -772,24 +899,44 @@
             document.getElementById("skin_divider").style.display = "block";
         }
 
+        if (pokem.special == true) {
+            document.getElementById("text_special_1").style.display = "block";
+            document.getElementById("text_special_2").style.display = "block";
+            document.getElementById("text_spe").innerHTML = pokem.special_name;
+            if (pokem.special2 == true) {
+                document.getElementById("text_special_3").style.display = "block";
+                document.getElementById("text_special_4").style.display = "block";
+                document.getElementById("text_spe2").innerHTML = pokem.special_name2;
+                if (document.getElementById("spe").checked == true
+                    && document.getElementById("spe2").checked == true) {
+                    document.getElementById("spe").checked = false;
+                    document.getElementById("spe2").checked = false;
+                }
+            }
+        }
+
         var sw = window.innerWidth * 0.6;
 
         if (isPC == false) {
             sw = window.innerWidth;
         }
 
-        var append_top = document.getElementById("top_name");
-        append_top.innerHTML = pokem.name;
+        if (isPC == true) {
+            var append_top = document.getElementById("top_name");
+            append_top.innerHTML = pokem.name;
 
-        var append_top = document.getElementById("top_pro");
-        append_top.innerHTML = pokem.type1;
-        if (pokem.type2 != "") {
-            append_top.innerHTML = pokem.type1 + " | " + pokem.type2;
+            var append_top = document.getElementById("top_pro");
+            append_top.innerHTML = pokem.type1;
+            if (pokem.type2 != "") {
+                append_top.innerHTML = pokem.type1 + " | " + pokem.type2;
+            }
         }
 
         var img_source = "/img/" + pokem.img;
         var img_select = document.getElementById("the_pic");
         img_select.src = img_source;
+        var imgw = Math.min(sw*0.9, 350);
+        img_select.style = "max-width: " + imgw + "px;";
 
         // all variables used
         var nameTag = ["血量", "物攻", "物防", "特攻", "特防", "速度"];
@@ -867,6 +1014,16 @@
                 }
             }
         }
+        if (pokem.special == true) {
+            if (document.getElementById("spe").checked == true &&
+                pokem.special_name == "一猩一意") {
+                    correct_add[1] *= 1.5;
+            }
+            if (document.getElementById("spe2").checked == true &&
+                pokem.special_name2 == "一猩一意") {
+                    correct_add[1] *= 1.5;
+            }
+        }
 
         if (item_selected >= 0 && item_selected < 30) {
             var select_item_temp = item_selected;
@@ -879,6 +1036,22 @@
                     * held_item[select_item_temp][ii] * correct_add[ii] + correction2[ii]);
             }
         }
+        var after_correction = [1,1,1,1,1,1];
+        if (pokem.special == true) {
+            var spec = document.getElementById("spe").checked;
+            if (spec == true) {
+                var temp_array_spe = divideString(pokem.special_value);
+                for (var i = 0; i < 6; i++) {
+                    after_correction[i] *= temp_array_spe[i];
+                }
+            }
+            if (pokem.special2 == true && document.getElementById("spe2").checked == true) {
+                var temp_array_spe2 = divideString(pokem.special_value2);
+                for (var i = 0; i < 6; i++) {
+                    after_correction[i] *= temp_array_spe2[i];
+                }
+            }
+        }
 
         if (pokem.has_item == false) {
             var it0 = document.getElementById("the_item_0");
@@ -887,12 +1060,32 @@
             it1.style = "display: none;";
         }
 
+        for (var i = 0; i < 6; i++) {
+            var temp_tag_v = tagVal[i];
+            tagVal[i] = Math.round(temp_tag_v * after_correction[i]);
+        }
+
+        if ((pokem.special_name == "性情大变&异常" && document.getElementById("spe").checked == true) ||
+            (pokem.special_name2 == "性情大变&异常" && document.getElementById("spe2").checked == true)) {
+            var tempswap = tagVal[3];
+            tagVal[3] = tagVal[4];
+            tagVal[4] = tempswap;
+        }
+
+        if ((pokem.special_name == "双攻互换" && document.getElementById("spe").checked == true) ||
+            (pokem.special_name2 == "双攻互换" && document.getElementById("spe2").checked == true)) {
+            var tempswap = tagVal[1];
+            tagVal[1] = tagVal[3];
+            tagVal[3] = tempswap;
+        }
+
         var lenMax = Math.ceil(Math.max(...tagVal) / 5000) * 5000;
         console.log(lenMax);
         
         var yAxis = [80, 120, 160, 200, 240, 280];
         var yAxisUp = -40;
-        var fillColor = ["#A33645", "#DBE2A9", "#9C7934", "#6EB0CF", "#A173D0", "#E9BDD8"];
+        //var fillColor = ["#A33645", "#DBE2A9", "#9C7934", "#6EB0CF", "#A173D0", "#E9BDD8"];
+        var fillColor = ["#52b788", "#f9c74f", "#f3722c", "#00b4d8", "#0077b6", "#5e548e"];
         var roundedR = 8;
         svg.append('rect')
             .classed("back_container", true)

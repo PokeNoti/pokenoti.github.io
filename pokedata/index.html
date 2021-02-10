@@ -3,6 +3,9 @@
 
 <meta charset = "utf-8">
 <script src = "https://d3js.org/d3.v4.js"></script>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
 <div id = "big_dom" class = "big_dom">
 
 <div id = "search_pane">
@@ -119,6 +122,10 @@
     .orderss label:last-of-type {
         border-radius: 0 16px 16px 0;
     }
+    .btnImg {
+        display: inline;
+        float: left;
+    }
 </style>
 
 <script>
@@ -222,7 +229,12 @@
             var t = document.createTextNode(localdata[i].name + " (" + typestring + ")");
             var btn2 = document.createElement("div");
             var t2 = document.createTextNode(localdata[i].discount + "折");
+            var btn_img = document.createElement("img");
+            btn_img.src = "/img/" + localdata[i].img;
+            btn_img.setAttribute("style", "width: 18px; height: 18px;");
+            btn_img.setAttribute("class", "btnImg");
             btn2.setAttribute("class", "b_discount");
+            btn.appendChild(btn_img);
             btn.appendChild(t);
             btn2.appendChild(t2);
             btn.name = "listsof";
@@ -337,7 +349,7 @@
 </div>
 <span id="skin_divider" class = "divider skin_available"></span>
 <div id = "text_field_choice42" class = "pane_text">
-    <div id="text_gh" class = "left_align">公会加成</div>
+    <div id="text_gh" class = "left_align">公会</div>
     <div id="additionC" class = "mid_align" style="color: rgb(116, 116, 116);">攻: 
         <button type="button" id="attack1" class = "inputC" onclick="sliderA1()">–</button>
         <span id="attackss" class="range-slider__value">15%</span>
@@ -665,7 +677,7 @@
 
     .mid_align {
         display: inline;
-        padding-left: 10%;
+        padding-left: 1%;
     }
     
 </style>

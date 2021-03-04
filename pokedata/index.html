@@ -532,41 +532,63 @@
             <span class = "slider round"></span>
         </label>
     </div>
+
+
 <div class = "levelCir">
-<div id = "range_text1" class = "range_textfield rangeshow">物攻</div>
-<div class="range-slider_level">
-    <input class="range-slider__range_level rangeshow" type="range" value="0" min="-6" max="6" oninput="this.nextElementSibling.value = this.value" onchange="rangeSlider()">
-    <output class="range-slider__value_level rangeshow">0</output>
+
+<div id = "leveltext" class = "rangeText">
+
+<div id = "big_group_1" class = "rangeshow big_group">
+<div class = "rangeTextDescription">物攻</div>
+<div id = "range_group_fa" class = "range_group">
+    <button type="button" id="fa_left" class = "inputCR" onclick="fa_down()">–</button>
+    <span id="fa_span" class="range_value_level">0</span>
+    <button type="button" id="fa_right" class = "inputCR" onclick="fa_up()">+</button>
 </div>
 </div>
-<div class = "levelCir">
-<div id = "range_text2" class = "range_textfield rangeshow">物防</div>
-<div class="range-slider_level">
-    <input class="range-slider__range_level rangeshow" type="range" value="0" min="-6" max="6" oninput="this.nextElementSibling.value = this.value" onchange="rangeSlider()">
-    <output class="range-slider__value_level rangeshow">0</output>
+
+<div id = "big_group_2" class = "rangeshow big_group">
+<div class = "rangeTextDescription">物防</div>
+<div id = "range_group_fd" class = "range_group">
+    <button type="button" id="fd_left" class = "inputCR" onclick="fd_down()">–</button>
+    <span id="fd_span" class="range_value_level">0</span>
+    <button type="button" id="fd_right" class = "inputCR" onclick="fd_up()">+</button>
 </div>
 </div>
-<div class = "levelCir">
-<div id = "range_text3" class = "range_textfield rangeshow">特攻</div>
-<div class="range-slider_level">
-    <input class="range-slider__range_level rangeshow" type="range" value="0" min="-6" max="6" oninput="this.nextElementSibling.value = this.value" onchange="rangeSlider()">
-    <output class="range-slider__value_level rangeshow">0</output>
+
+<div id = "big_group_3" class = "rangeshow big_group">
+<div class = "rangeTextDescription">特攻</div>
+<div id = "range_group_sa" class = "range_group">
+    <button type="button" id="sa_left" class = "inputCR" onclick="sa_down()">–</button>
+    <span id="sa_span" class="range_value_level">0</span>
+    <button type="button" id="sa_right" class = "inputCR" onclick="sa_up()">+</button>
 </div>
 </div>
-<div class = "levelCir">
-<div id = "range_text4" class = "range_textfield rangeshow">特防</div>
-<div class="range-slider_level">
-    <input class="range-slider__range_level rangeshow" type="range" value="0" min="-6" max="6" oninput="this.nextElementSibling.value = this.value" onchange="rangeSlider()">
-    <output class="range-slider__value_level rangeshow">0</output>
+
+<div id = "big_group_4" class = "rangeshow big_group">
+<div class = "rangeTextDescription">特防</div>
+<div id = "range_group_sd" class = "range_group">
+    <button type="button" id="sd_left" class = "inputCR" onclick="sd_down()">–</button>
+    <span id="sd_span" class="range_value_level">0</span>
+    <button type="button" id="sd_right" class = "inputCR" onclick="sd_up()">+</button>
 </div>
 </div>
-<div class = "levelCir">
-<div id = "range_text5" class = "range_textfield rangeshow">速度</div>
-<div class="range-slider_level">
-    <input class="range-slider__range_level rangeshow" type="range" value="0" min="-6" max="6" oninput="this.nextElementSibling.value = this.value" onchange="rangeSlider()">
-    <output class="range-slider__value_level rangeshow">0</output>
+
+<div id = "big_group_5" class = "rangeshow big_group">
+<div class = "rangeTextDescription">速度</div>
+<div id = "range_group_speed" class = "range_group">
+    <button type="button" id="speed_left" class = "inputCR" onclick="speed_down()">–</button>
+    <span id="speed_span" class="range_value_level">0</span>
+    <button type="button" id="speed_right" class = "inputCR" onclick="speed_up()">+</button>
 </div>
 </div>
+
+
+</div>
+
+
+</div>
+
 </div>
 <span class="divider"></span>
 
@@ -664,7 +686,7 @@
     .divider {
         position: absolute;
         left: 5%;
-        right: 10%;
+        right: 5%;
         padding-top: 3px;
         border-bottom: 1px solid rgba(129, 129, 129, 0.575);
     }
@@ -679,7 +701,7 @@
     .right_align {
         display: inline;
         float: right;
-        padding-right: 10%;
+        padding-right: 5%;
     }
     .pm_img {
     	display: block;
@@ -858,6 +880,44 @@
     .range-slider__range_level:focus {
         outline: none;
     }
+    .inputCR {
+        outline: none;
+        color: white;
+        cursor: pointer;
+        height: 20px;
+        width: 20px;
+        border: none;
+        border-radius: 50%;
+        text-align: center;
+        background-color: #a090e9;
+        box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+    .range_value_level {
+        border-width: 10px;
+        color: aliceblue;
+    }
+    .range_text {
+        display: block;
+    }
+    .rangeTextDescription {
+        color: #e2e2e2;
+    }
+    .big_group {
+        display: inline-flex;
+        background: #5d5ebee0;
+        padding-left: 5px;
+        border-radius: 25px;
+        margin-right: 5px;
+        margin-top: 5px;
+        box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+    .range_group {
+        padding-left: 5px;
+        padding-right: 5px;
+        background: #081e7bc4;
+        box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        border-radius: 25px;
+    }
 
     .inform_text {
         font-size: 16px;
@@ -928,14 +988,12 @@
         document.getElementById("level1").checked = false;
         levelRange = [1,1,1,1,1,1];
         var range_vis = document.getElementsByClassName("rangeshow");
-        var range_ = document.getElementsByClassName("range-slider__range_level"), 
-            value_ = document.getElementsByClassName("range-slider__value_level");
+        var value_ = document.getElementsByClassName("range_value_level");
         for(var i = 0; i < range_vis.length; i++) {
             range_vis[i].style = "display: none;";
         }
         for (var i = 0; i < 5; i++) {
-            range_[i].value = 0;
-            value_[i].innerHTML = "0";
+            value_[i].innerHTML = "+0";
         }
         
         for (var ii = 0; ii < 6; ii++) {
@@ -1291,23 +1349,144 @@
         // change in ()
         appendData();
     }
-
+    
     var levelRange;
+
+    function fa_down() {
+        var fa_level_value = +document.getElementById("fa_span").innerHTML;
+        fa_level_value--;
+        if (fa_level_value < -6) {
+            fa_level_value = -6;
+        }
+        document.getElementById("fa_span").innerHTML = "+" + fa_level_value;
+        if (fa_level_value < 0) {
+            document.getElementById("fa_span").innerHTML = fa_level_value;
+        }
+        rangeSlider();
+    }
+    function fa_up() {
+        var fa_level_value = +document.getElementById("fa_span").innerHTML;
+        fa_level_value++;
+        if (fa_level_value > 6) {
+            fa_level_value = 6;
+        }
+        document.getElementById("fa_span").innerHTML = "+" + fa_level_value;
+        if (fa_level_value < 0) {
+            document.getElementById("fa_span").innerHTML = fa_level_value;
+        }
+        rangeSlider();
+    }
+    function fd_down() {
+        var fd_level_value = +document.getElementById("fd_span").innerHTML;
+        fd_level_value--;
+        if (fd_level_value < -6) {
+            fd_level_value = -6;
+        }
+        document.getElementById("fd_span").innerHTML = "+" + fd_level_value;
+        if (fd_level_value < 0) {
+            document.getElementById("fd_span").innerHTML = fd_level_value;
+        }
+        rangeSlider();
+    }
+    function fd_up() {
+        var fd_level_value = +document.getElementById("fd_span").innerHTML;
+        fd_level_value++;
+        if (fd_level_value > 6) {
+            fd_level_value = 6;
+        }
+        document.getElementById("fd_span").innerHTML = "+" + fd_level_value;
+        if (fd_level_value < 0) {
+            document.getElementById("fd_span").innerHTML = fd_level_value;
+        }
+        rangeSlider();
+    }
+    function sa_down() {
+        var sa_level_value = +document.getElementById("sa_span").innerHTML;
+        sa_level_value--;
+        if (sa_level_value < -6) {
+            sa_level_value = -6;
+        }
+        document.getElementById("sa_span").innerHTML = "+" + sa_level_value;
+        if (sa_level_value < 0) {
+            document.getElementById("sa_span").innerHTML = sa_level_value;
+        }
+        rangeSlider();
+    }
+    function sa_up() {
+        var sa_level_value = +document.getElementById("sa_span").innerHTML;
+        sa_level_value++;
+        if (sa_level_value > 6) {
+            sa_level_value = 6;
+        }
+        document.getElementById("sa_span").innerHTML = "+" + sa_level_value;
+        if (sa_level_value < 0) {
+            document.getElementById("sa_span").innerHTML = sa_level_value;
+        }
+        rangeSlider();
+    }
+    function sd_down() {
+        var sd_level_value = +document.getElementById("sd_span").innerHTML;
+        sd_level_value--;
+        if (sd_level_value < -6) {
+            sd_level_value = -6;
+        }
+        document.getElementById("sd_span").innerHTML = "+" + sd_level_value;
+        if (sd_level_value < 0) {
+            document.getElementById("sd_span").innerHTML = sd_level_value;
+        }
+        rangeSlider();
+    }
+    function sd_up() {
+        var sd_level_value = +document.getElementById("sd_span").innerHTML;
+        sd_level_value++;
+        if (sd_level_value > 6) {
+            sd_level_value = 6;
+        }
+        document.getElementById("sd_span").innerHTML = "+" + sd_level_value;
+        if (sd_level_value < 0) {
+            document.getElementById("sd_span").innerHTML = sd_level_value;
+        }
+        rangeSlider();
+    }
+    function speed_down() {
+        var speed_level_value = +document.getElementById("speed_span").innerHTML;
+        speed_level_value--;
+        if (speed_level_value < -6) {
+            speed_level_value = -6;
+        }
+        document.getElementById("speed_span").innerHTML = "+" + speed_level_value;
+        if (speed_level_value < 0) {
+            document.getElementById("speed_span").innerHTML = speed_level_value;
+        }
+        rangeSlider();
+    }
+    function speed_up() {
+        var speed_level_value = +document.getElementById("speed_span").innerHTML;
+        speed_level_value++;
+        if (speed_level_value > 6) {
+            speed_level_value = 6;
+        }
+        document.getElementById("speed_span").innerHTML = "+" + speed_level_value;
+        if (speed_level_value < 0) {
+            document.getElementById("speed_span").innerHTML = speed_level_value;
+        }
+        rangeSlider();
+    }
+
 
     function rangeSlider() {
         var range_vis = document.getElementsByClassName("rangeshow");
         var isRangeChecked = document.getElementById("level1").checked;
         levelRange = [1,1,1,1,1,1];
-        var range_ = document.getElementsByClassName("range-slider__range_level"), 
-            value_ = document.getElementsByClassName("range-slider__value_level");
+        //var range_ = document.getElementsByClassName("range-slider__range_level");
+        var value_ = document.getElementsByClassName("range_value_level");
 
         if (isRangeChecked == false) {
             for(var i = 0; i < range_vis.length; i++) {
                 range_vis[i].style = "display: none;";
             }
             for (var i = 0; i < 5; i++) {
-                range_[i].value = 0;
-                value_[i].innerHTML = "0";
+                value_[i].innerHTML = "+0";
             }
         }
         else {
@@ -1315,8 +1494,8 @@
                 range_vis[i].style = "display: ;";
             }
             for (var i = 0; i < 5; i++) {
-                var thevalue = +range_[i].value;
-                if(thevalue >= 0) {
+                var thevalue = +value_[i].innerHTML;
+                if (thevalue >= 0) {
                     levelRange[i+1] = (thevalue+3)/3;
                 }
                 else {

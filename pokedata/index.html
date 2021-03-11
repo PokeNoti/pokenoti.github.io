@@ -52,7 +52,31 @@
 <br class="blanks">
 <div id = "pm_list" class="the_left_s"></div>
 </div>
+<button id = "float_button" class = "floating_button" type="button" onclick="goback_func()">&olarr;</button>
 <style>
+    .floating_button {
+        position: fixed;
+        display: block;
+        float: left;
+        width: 50px;
+        height: 50px;
+        left: 5%;
+        bottom: 5%;
+        z-index: 10;
+        border-radius: 100%;
+        text-align: center;
+        font-size: 36px;
+        color: #ffffffee;
+        background: #282a2b3c;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        border: none;
+    }
+    .floating_button:hover {
+        background: #282a2b;
+    }
+    .floating_button:focus {
+        outline-width: 0;
+    }
     .big_dom {
         height: 100%;
         width: 100%;
@@ -1001,13 +1025,17 @@
         }
     }
 
-    window.addEventListener("popstate", function() {
-		if (current_states == 0 || current_states == 1) {
-            window.location = "/";
+    function goback_func() {
+        if (current_states == 0 || current_states == 1) {
+            window.location = "../";
         }
         if (current_states == 2) {
             closeNav();
         }
+    }
+
+    window.addEventListener("popstate", function() {
+		goback_func();
 	});
     
 

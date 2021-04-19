@@ -140,16 +140,14 @@ function updateData() {
         sw = window.innerWidth;
     }
 
-    if (isPC == true) {
         var append_top = document.getElementById("top_name");
-        append_top.innerHTML = pokem.name;
+        append_top.innerText = pokem.name;
 
         var append_top = document.getElementById("top_pro");
         append_top.innerHTML = pokem.type1;
         if (pokem.type2 != "") {
-            append_top.innerHTML = pokem.type1 + " | " + pokem.type2;
+            append_top.innerText = pokem.type1 + " | " + pokem.type2;
         }
-    }
 
     var img_source = "/img/" + pokem.img;
     var img_select = document.getElementById("the_pic");

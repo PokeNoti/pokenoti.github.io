@@ -67,7 +67,9 @@
             document.getElementById("panel").style.width = "60%";
             document.getElementById("clse").style.display = "none";
             document.getElementById("top_pane").style.display = "none";
-            document.getElementById("top_pane2").style.display = "none";
+            document.getElementById("top_pane2").style.visibility = "hidden";
+            document.getElementById("top_name").style.visibility = "visible";
+            document.getElementById("top_pro").style.visibility = "visible";
         }
         else {
             dmain.style.width = "100%";
@@ -75,7 +77,9 @@
             document.getElementById("panel").style.width = "100%";
             document.getElementById("clse").style.display = "block";
             document.getElementById("top_pane").style.display = "block";
-            document.getElementById("top_pane2").style.display = "fixed";
+            document.getElementById("top_pane2").style.visibility = "visible";
+            document.getElementById("top_name").style.visibility = "hidden";
+            document.getElementById("top_pro").style.visibility = "hidden";
         }
     }
 

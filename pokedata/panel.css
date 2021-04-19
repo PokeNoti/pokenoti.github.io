@@ -1,0 +1,325 @@
+.sidenav_m {
+        
+    width: 0; /* 0 width - change this with JavaScript */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Stay on top */
+    top: 0; /* Stay at the top */
+    right: 0;
+    bottom: 0;
+    background-color: rgb(212, 218, 226);
+    overflow-x: hidden; /* Disable horizontal scroll */
+    overflow-y: auto;
+    padding-top: 60px; /* Place content 60px from the top */
+    transition: ease 0.3s;
+}
+.sidenav_m .pop_nav_m {
+    position: fixed; /* Stay in place */
+    top: 0; /* Stay at the top */
+    background-color: rgb(30, 125, 214);
+    width: 100%;
+    height: 40px;
+    color: white;
+    text-align: center;
+    margin: auto;
+    padding: auto;
+    vertical-align: middle;
+    line-height: 40px;
+    text-decoration: none;
+    display: none;
+    font-size: 18px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.sidenav_m .closebtn {
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding-left: 2%;
+    font-size: 28px;
+    color: white;
+    display: none;
+    cursor: pointer;
+}
+.top_pp2 {
+    display: block;
+    position: fixed;
+    top: 7px;
+    right: 2px;
+    float: right;
+    font-size: 16px;
+    padding-right: 8px;
+    color: white;
+}
+.head1 {
+    position: absolute;
+    display: inline-block;
+    top: 0px;
+    left: 5%;
+    right: 10%;
+    text-align: left;
+}
+.head2 {
+    position: absolute;
+    display: inline-block;
+    top: 30px;
+    left: 5%;
+    right: 10%;
+    text-align: right;
+}
+.pane_text {
+    position: static;
+    left: 0;
+    padding-left: 5%;
+    padding-top: 8px;
+    line-height: 2;
+    font-size: 16px;
+}
+.pane2_svg {
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-top: 20px;
+}
+.divider {
+    position: absolute;
+    left: 5%;
+    right: 5%;
+    padding-top: 3px;
+    border-bottom: 1px solid rgba(129, 129, 129, 0.575);
+}
+.back_container {
+    box-shadow: 5px 10px;
+}
+
+.left_align {
+    display: inline;
+}
+
+.right_align {
+    display: inline;
+    float: right;
+    padding-right: 5%;
+}
+.pm_img {
+    display: block;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+/* The switch - the box around the slider */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 38px;
+    height: 10px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+/* The slider */
+.slider {
+    position: absolute;
+    cursor: pointer;
+    margin-bottom: -13px;
+    margin-top: 13px;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .2s;
+    transition: .2s;
+}
+
+/* the round */
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    left: 0px;
+    bottom: -3px;
+    background-color: white;
+    -webkit-transition: .2s;
+    transition: .2s;
+}
+
+input:checked + .slider {
+    background-color: #2196F3;
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+    border-radius: 20px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+.switch_b {
+    display: inline-flex;
+    margin-bottom: 8px;
+    overflow: hidden;
+}
+.switch_b input {
+    position: absolute;
+    clip: rect(0, 0, 0, 0);
+    height: 1px;
+    width: 1px;
+    border: 0;
+    overflow: hidden;
+}
+.switch_b label {
+    background-color: #e4e4e4;
+    color: rgb(0, 0, 0);
+    font-size: 14px;
+    line-height: 1;
+    text-align: center;
+    padding: 8px 16px;
+    margin-right: -1px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px rgba(255, 255, 255, 0.1);
+    transition: all 0.1s ease-in-out;
+}
+.switch_b1 label {
+    font-size: 12px;
+    padding: 4px 8px;
+}
+.switch_b1 {
+    margin-top: 4px;
+}
+.switch_b label:hover {
+    cursor: pointer;
+}
+.switch_b input:checked + label {
+    color: rgb(255, 255, 255);
+    background-color: #2196F3;
+    box-shadow: none;
+}
+.switch_b label:first-of-type {
+    border-radius: 16px 0px 0 16px;
+}
+.switch_b label:last-of-type {
+    border-radius: 0 16px 16px 0;
+}
+
+/* SELECT CHARACTER */
+.select-cus1 {
+    outline: none;
+    font-size: 15px;
+    border-radius: 16px;
+    border: 1px solid #6b676794;
+}
+.select-cus1:focus {
+    outline-width: 0;
+}
+
+.inputC {
+    outline: none;
+    color: white;
+    cursor: pointer;
+    height: 20px;
+    width: 20px;
+    border: none;
+    border-radius: 50%;
+    text-align: center;
+    background-color: #2196F3;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.mid_align {
+    display: inline;
+    padding-left: 1%;
+}
+
+.special_ava {
+    display: none;
+}
+
+.range_textfield {
+    color: #686868;
+    
+    font-size: 14px;
+}
+.levelCir {
+    display: flex;
+    padding-left: 10px;
+}
+.range-slider_level {
+    display: contents;
+    position: absolute;
+}
+.range-slider__range_level {
+    cursor: pointer;
+    opacity: 0.7;
+    transition: opacity .2s;
+    outline: none;
+    background-color: #2196F3;
+}
+.range-slider__range_level:focus {
+    outline: none;
+}
+.inputCR {
+    outline: none;
+    color: white;
+    cursor: pointer;
+    height: 20px;
+    width: 20px;
+    border: none;
+    border-radius: 50%;
+    text-align: center;
+    background-color: #a090e9;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.range_value_level {
+    border-width: 10px;
+    color: aliceblue;
+}
+.range_text {
+    display: block;
+}
+.rangeTextDescription {
+    color: #e2e2e2;
+}
+.big_group {
+    display: inline-flex;
+    background: #5d5ebee0;
+    padding-left: 5px;
+    border-radius: 25px;
+    margin-right: 5px;
+    margin-top: 5px;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.range_group {
+    padding-left: 5px;
+    padding-right: 5px;
+    background: #081e7bc4;
+    box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 25px;
+}
+
+.inform_text {
+    font-size: 16px;
+    display: list-item;
+    margin-top: 20px;
+    margin-left: 40px;
+    margin-right: 10px;
+    margin-bottom: 20px;
+    color: #4b293d;
+}

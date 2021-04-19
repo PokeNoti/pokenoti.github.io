@@ -1,0 +1,137 @@
+.floating_button {
+    position: fixed;
+    display: block;
+    float: left;
+    width: 50px;
+    height: 50px;
+    left: 5%;
+    bottom: 5%;
+    z-index: 10;
+    border-radius: 100%;
+    text-align: center;
+    font-size: 36px;
+    color: #ffffffee;
+    background: #282a2b3c;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border: none;
+}
+.floating_button:hover {
+    background: #282a2b;
+}
+.floating_button:focus {
+    outline-width: 0;
+}
+.big_dom {
+    height: 100%;
+    width: 100%;
+    display: block;
+    position: fixed;
+}
+.btnsss {
+    background-color: #ebebeb;
+    border: none;
+    border-bottom: 1px dashed rgb(189, 189, 189);
+    color: black;
+    padding: 12px 28px;
+    width: 100%;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+.btnsss:hover {
+    background-color: #686868;
+    color: white;
+}
+.b_discount {
+    display: inline;
+    position: sticky;
+    float: right;
+}
+.blanks {
+    content: "";
+    display: block;
+    font-size: 100%;
+    height: 0.3em;
+    outline: none;
+}
+.searchIn {
+    background-color: #dddddd70;
+    border: none;
+    padding: 8px 12px;
+    display: inline-block;
+    outline: none;
+    width: 120px;
+    border-radius: 25px;
+}
+.searchIn:focus {
+    outline-width: 0;
+}
+.the_left_s {
+    display: block;
+    height: 95%;
+    overflow: auto;
+}
+.order_text {
+    position: static;
+    display: inline-block;
+}
+.orderss {
+    display: inline-flex;
+    margin-bottom: 8px;
+    overflow: hidden;
+}
+.orderss input {
+    position: absolute;
+    clip: rect(0, 0, 0, 0);
+    height: 1px;
+    width: 1px;
+    border: 0;
+    overflow: hidden;
+}
+.orderss label {
+    background-color: #e4e4e4;
+    color: rgb(0, 0, 0);
+    font-size: 12px;
+    line-height: 0.5;
+    text-align: center;
+    padding: 8px 10px;
+    margin-right: -1px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px rgba(255, 255, 255, 0.1);
+    transition: all 0.1s ease-in-out;
+}
+.orderss label:hover {
+    cursor: pointer;
+}
+.orderss input:checked + label {
+    color: rgb(255, 255, 255);
+    background-color: #282a2b;
+    box-shadow: none;
+}
+.orderss label:first-of-type {
+    border-radius: 16px 0px 0 16px;
+}
+.orderss label:last-of-type {
+    border-radius: 0 16px 16px 0;
+}
+.btnImg {
+    display: inline;
+    float: left;
+}
+.type_select {
+    display: inline;
+}
+.type_se {
+    background-color: rgb(90, 90, 90);
+    color: white;
+    display: inline-block;
+    text-align: center;
+    border: none;
+    outline: none;
+    border-radius: 25px;
+    border: 1px solid #6b676794;
+}
+.type_se:focus {
+    outline-width: 0;
+}
